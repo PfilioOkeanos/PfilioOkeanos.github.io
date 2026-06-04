@@ -7,27 +7,59 @@
   <meta name="description" content="Persönlicher Projekt-Hub von Pfilio Okeanos: Games, Tools, VFX, Editing, GeoNodes und kreative Projekte." />
 
   <style>
+    :root {
+      --bg: #0d1117;
+      --bg-soft: #111827;
+      --card: #161b22;
+      --card-2: #0f1623;
+      --line: #30363d;
+      --text: #f0f6fc;
+      --muted: #c9d1d9;
+      --subtle: #8b949e;
+      --blue: #58a6ff;
+      --cyan: #4de8ff;
+      --violet: #b36bff;
+      --pink: #ff4fd8;
+      --green: #3fb950;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #0d1117;
-      color: #f0f6fc;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(88, 166, 255, 0.14), transparent 34%),
+        radial-gradient(circle at 85% 12%, rgba(255, 79, 216, 0.12), transparent 30%),
+        #0d1117;
+      color: var(--text);
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+    }
+
     .page {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 48px 24px;
     }
 
     header {
       padding: 64px 0 40px;
-      border-bottom: 1px solid #30363d;
+      border-bottom: 1px solid var(--line);
     }
 
     .tag {
-      color: #58a6ff;
+      color: var(--blue);
       font-weight: bold;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -40,19 +72,55 @@
       margin: 16px 0;
     }
 
+    h2 {
+      font-size: 1.75rem;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
     .intro {
       max-width: 760px;
       font-size: 1.2rem;
-      color: #c9d1d9;
+      color: var(--muted);
     }
 
     .section {
-      margin-top: 48px;
+      margin-top: 56px;
     }
 
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 16px;
+    .links,
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .links a,
+    .button {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: #21262d;
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 160ms ease;
+    }
+
+    .links a:hover,
+    .button:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      border-color: rgba(77, 232, 255, 0.5);
+      background: linear-gradient(135deg, rgba(88,166,255,0.28), rgba(179,107,255,0.24));
+      box-shadow: 0 0 24px rgba(88, 166, 255, 0.16);
     }
 
     .grid {
@@ -62,25 +130,34 @@
     }
 
     .card {
-      border: 1px solid #30363d;
-      background: #161b22;
-      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(22, 27, 34, 0.96), rgba(13, 17, 23, 0.96));
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
     }
 
     .preview {
-      height: 150px;
+      min-height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
       background:
         linear-gradient(135deg, rgba(88,166,255,0.18), rgba(255,255,255,0.03)),
         #0d1117;
-      border-bottom: 1px solid #30363d;
-      color: #8b949e;
+      border-bottom: 1px solid var(--line);
+      color: var(--subtle);
       font-size: 0.85rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+    }
+
+    .preview img,
+    .asset-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
     }
 
     .card-content {
@@ -93,37 +170,105 @@
     }
 
     .card p {
-      color: #c9d1d9;
+      color: var(--muted);
       margin-bottom: 0;
     }
 
-    .links {
+    .featured-asset {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 24px;
+      border: 1px solid rgba(88, 166, 255, 0.35);
+      background:
+        linear-gradient(135deg, rgba(88, 166, 255, 0.13), rgba(255, 79, 216, 0.08)),
+        var(--card);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .asset-image {
+      min-height: 360px;
+      background: #05070d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .asset-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.38));
+      pointer-events: none;
+    }
+
+    .asset-copy {
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .asset-copy h3 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      line-height: 1.05;
+      margin: 10px 0 12px;
+    }
+
+    .asset-copy p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 8px;
+      margin-bottom: 12px;
     }
 
-    .links a {
-      color: #f0f6fc;
-      text-decoration: none;
-      border: 1px solid #30363d;
-      background: #21262d;
-      padding: 10px 14px;
+    .badge {
+      border: 1px solid rgba(88, 166, 255, 0.28);
+      background: rgba(88, 166, 255, 0.10);
+      color: #dff4ff;
+      padding: 5px 9px;
       border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: bold;
     }
 
-    .links a:hover {
-      border-color: #58a6ff;
-      color: #58a6ff;
+    .feature-list {
+      padding-left: 18px;
+      margin: 10px 0 4px;
+      color: var(--muted);
+    }
+
+    .feature-list li {
+      margin: 6px 0;
+    }
+
+    .note {
+      color: var(--subtle);
+      font-size: 0.95rem;
+      margin-top: 14px;
     }
 
     footer {
       margin-top: 64px;
       padding-top: 24px;
-      border-top: 1px solid #30363d;
-      color: #8b949e;
+      border-top: 1px solid var(--line);
+      color: var(--subtle);
       font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .featured-asset {
+        grid-template-columns: 1fr;
+      }
+
+      .asset-image {
+        min-height: 240px;
+      }
     }
   </style>
 </head>
@@ -135,10 +280,10 @@
       <h1>Pfilio Okeanos</h1>
       <p class="intro">
         Games, Tools, VFX, Editing, GeoNodes und kreative Projekte.
-        Diese Seite ist meine zentrale Übersicht für aktuelle Arbeiten, Experimente, Social Links und zukünftige Releases.
+        Diese Seite ist meine zentrale Übersicht für aktuelle Arbeiten, Experimente, Social Links und Releases.
       </p>
 
-      <div class="links">
+      <div class="links" aria-label="Social und Plattform Links">
         <a href="https://github.com/PfilioOkeanos" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.youtube.com/@oOhnnOo" target="_blank" rel="noopener noreferrer">YouTube</a>
         <a href="https://www.instagram.com/pfilio_okeanos/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -155,7 +300,47 @@
       </div>
     </header>
 
-    <section class="section">
+    <section class="section" id="blender-assets">
+      <div class="tag">First Release · Blender Asset</div>
+      <h2>Blender Assets</h2>
+
+      <article class="featured-asset">
+        <div class="asset-image">
+          <img src="assets/img/pfilio-auto-target-lightning-hero.jpg" alt="Pfilio's Auto-Target Lightning Geometry Nodes preview with alien characters and lightning effect" loading="lazy" />
+        </div>
+
+        <div class="asset-copy">
+          <div class="badges">
+            <span class="badge">Geometry Nodes</span>
+            <span class="badge">Shader</span>
+            <span class="badge">VFX</span>
+            <span class="badge">Presets</span>
+          </div>
+
+          <h3>Pfilio's Auto-Target Lightning</h3>
+          <p>
+            A procedural Blender Geometry Nodes and shader setup for animated auto-target lightning effects.
+            Built for stylized VFX, sci-fi scenes, magic attacks, motion graphics and experimental Blender animations.
+          </p>
+
+          <ul class="feature-list">
+            <li>Source and Target collection workflow</li>
+            <li>Exposed controls for intensity, glow, thickness, branch count, jitter and target influence</li>
+            <li>Included shader setup, presets, demo scene, README, license file and tutorial</li>
+          </ul>
+
+          <div class="actions">
+            <a class="button primary" href="auto-target-lightning.html">Open Preview Page</a>
+            <a class="button" href="https://pfiliookeanos.gumroad.com/l/wzxqb" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+            <a class="button" href="https://youtu.be/7hGhzYICWeo" target="_blank" rel="noopener noreferrer">Watch Tutorial</a>
+          </div>
+
+          <p class="note">Die Verkaufsdatei bleibt auf Gumroad. Diese GitHub-Seite ist nur Preview, Portfolio und Landingpage.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="projects">
       <h2>Projekte</h2>
 
       <div class="grid">
@@ -176,10 +361,15 @@
         </article>
 
         <article class="card">
-          <div class="preview">VFX Preview</div>
+          <div class="preview">
+            <img src="assets/img/pfilio-auto-target-lightning-blue-wave.jpg" alt="Blue Geometry Nodes lightning wave preview" loading="lazy" />
+          </div>
           <div class="card-content">
             <h3>VFX & GeoNodes</h3>
             <p>Blender Geometry Nodes, prozedurale Effekte, Motion-Systeme, Wellen, Partikel und Fracture-Ideen.</p>
+            <div class="actions">
+              <a class="button" href="auto-target-lightning.html">View First Asset</a>
+            </div>
           </div>
         </article>
 
@@ -196,7 +386,7 @@
     <section class="section">
       <h2>Status</h2>
       <p>
-        Website online. Erste Projektstruktur aktiv. Links, Thumbnails, Projektseiten und Inhalte werden schrittweise ergänzt.
+        Website online. Erste Projektstruktur aktiv. Das erste Blender-Asset ist als Landingpage integriert und führt zum Gumroad-Download.
       </p>
     </section>
 

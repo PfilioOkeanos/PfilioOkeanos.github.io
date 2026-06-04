@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pfilio's Auto-Target Lightning | Blender Geometry Nodes + Shader</title>
+  <meta name="description" content="Pfilio's Auto-Target Lightning is a procedural Blender Geometry Nodes and shader asset for animated auto-target lightning effects." />
+
+  <style>
+    :root {
+      --bg: #070a12;
+      --card: #111827;
+      --card-2: #161b22;
+      --line: #2d3440;
+      --text: #f0f6fc;
+      --muted: #c9d1d9;
+      --subtle: #8b949e;
+      --blue: #58a6ff;
+      --cyan: #4de8ff;
+      --violet: #b36bff;
+      --pink: #ff4fd8;
+      --green: #3fb950;
+      --shadow: 0 24px 90px rgba(0, 0, 0, 0.44);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 6%, rgba(88, 166, 255, 0.20), transparent 31%),
+        radial-gradient(circle at 78% 4%, rgba(255, 79, 216, 0.16), transparent 28%),
+        radial-gradient(circle at 50% 70%, rgba(77, 232, 255, 0.08), transparent 36%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 32px 24px 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0 28px;
+      color: var(--muted);
+    }
+
+    .topbar a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    .topbar a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 28px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid rgba(88, 166, 255, 0.38);
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(88, 166, 255, 0.13), rgba(255, 79, 216, 0.08)),
+        rgba(17, 24, 39, 0.86);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-image {
+      min-height: 390px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(240, 246, 252, 0.12);
+      background: #030611;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .tag {
+      color: var(--cyan);
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 0.98;
+      margin: 14px 0 16px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      margin-bottom: 18px;
+    }
+
+    .badges,
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .badge {
+      border: 1px solid rgba(88, 166, 255, 0.32);
+      background: rgba(88, 166, 255, 0.10);
+      color: #dff4ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(33, 38, 45, 0.92);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: 160ms ease;
+    }
+
+    .button:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      border-color: rgba(77, 232, 255, 0.55);
+      background: linear-gradient(135deg, rgba(88,166,255,0.35), rgba(179,107,255,0.28));
+      box-shadow: 0 0 28px rgba(88, 166, 255, 0.18);
+    }
+
+    .section {
+      margin-top: 56px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      background: rgba(17, 24, 39, 0.78);
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .panel li {
+      margin: 8px 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .shot {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #05070d;
+      text-decoration: none;
+      transition: 160ms ease;
+    }
+
+    .shot:hover {
+      transform: translateY(-2px);
+      border-color: var(--blue);
+    }
+
+    .shot img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .shot span {
+      display: block;
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .video-wrap {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #05070d;
+      box-shadow: var(--shadow);
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+
+    .setup-note {
+      border: 1px solid rgba(77, 232, 255, 0.32);
+      background: rgba(77, 232, 255, 0.08);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--subtle);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 240px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <nav class="topbar" aria-label="Page navigation">
+      <a href="index.html">← Back to Pfilio Okeanos</a>
+      <a href="https://pfiliookeanos.gumroad.com/l/wzxqb" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-image">
+        <img src="assets/img/pfilio-auto-target-lightning-hero.jpg" alt="Pfilio's Auto-Target Lightning product preview with Blender Geometry Nodes interface" />
+      </div>
+
+      <div>
+        <div class="tag">Blender Geometry Nodes + Shader</div>
+        <h1>Pfilio's Auto-Target Lightning</h1>
+        <p class="lead">
+          Create animated auto-target lightning effects directly inside Blender with a procedural Geometry Nodes generator and included shader setup.
+        </p>
+
+        <div class="badges">
+          <span class="badge">Procedural VFX</span>
+          <span class="badge">Target Collection</span>
+          <span class="badge">Shader Setup</span>
+          <span class="badge">Presets</span>
+          <span class="badge">Demo Scene</span>
+        </div>
+
+        <div class="actions">
+          <a class="button primary" href="https://pfiliookeanos.gumroad.com/l/wzxqb" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+          <a class="button" href="https://youtu.be/7hGhzYICWeo" target="_blank" rel="noopener noreferrer">Watch Tutorial</a>
+        </div>
+
+        <p>
+          The sales ZIP is delivered through Gumroad and includes the Blender file, Geometry Nodes generator, shader setup, demo scene, presets, README, License and tutorial link.
+        </p>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <article class="panel">
+        <h2>What it does</h2>
+        <p>
+          Pfilio's Auto-Target Lightning creates animated target-seeking lightning effects that can react to a target object or target collection.
+          It is designed for stylized VFX, sci-fi scenes, magic attacks, energy effects, motion graphics, cinematic shots and experimental Blender animations.
+        </p>
+        <p>
+          The included shader setup can create bright electric bolts, darker lightning looks, glowing energy, liquid-like spline effects and more experimental VFX results.
+        </p>
+      </article>
+
+      <article class="panel">
+        <h2>Main controls</h2>
+        <ul>
+          <li>Lightning intensity and glow intensity</li>
+          <li>Thickness, scale and branch count</li>
+          <li>Animated jitter / noise movement</li>
+          <li>Target distance and target influence</li>
+          <li>Start / end bias and direction controls</li>
+          <li>World light direction and shader color variation</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>Preview Gallery</h2>
+      <div class="gallery">
+        <a class="shot" href="assets/img/pfilio-auto-target-lightning-promo-alien.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/pfilio-auto-target-lightning-promo-alien.jpg" alt="Alien character with split lightning effect preview" loading="lazy" />
+          <span>Cinematic alien lightning preview</span>
+        </a>
+
+        <a class="shot" href="assets/img/pfilio-auto-target-lightning-red-beam.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/pfilio-auto-target-lightning-red-beam.jpg" alt="Red auto-target lightning beam preview in Blender" loading="lazy" />
+          <span>Red lightning / particle beam look</span>
+        </a>
+
+        <a class="shot" href="assets/img/pfilio-auto-target-lightning-blue-wave.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/pfilio-auto-target-lightning-blue-wave.jpg" alt="Blue flowing lightning wave preview in Blender" loading="lazy" />
+          <span>Wide blue lightning wave</span>
+        </a>
+
+        <a class="shot" href="assets/img/pfilio-auto-target-lightning-liquid-splines.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/pfilio-auto-target-lightning-liquid-splines.jpg" alt="Liquid-like thick spline effect preview" loading="lazy" />
+          <span>Thick liquid-like spline look</span>
+        </a>
+
+        <a class="shot" href="assets/img/pfilio-auto-target-lightning-blue-pillar.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/pfilio-auto-target-lightning-blue-pillar.jpg" alt="Blue lightning pillar preview in Blender" loading="lazy" />
+          <span>Vertical lightning pillar preset</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <article class="panel">
+        <h2>Included</h2>
+        <ul>
+          <li>Blender .blend file</li>
+          <li>Geometry Nodes lightning generator</li>
+          <li>Shader setup</li>
+          <li>Demo scene</li>
+          <li>Source / Target example setup</li>
+          <li>Presets</li>
+          <li>Preview images</li>
+          <li>README.txt and License.txt</li>
+          <li>Tutorial link</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h2>Use cases</h2>
+        <ul>
+          <li>Stylized lightning VFX</li>
+          <li>Sci-fi energy effects</li>
+          <li>Magic attacks and impact visuals</li>
+          <li>Motion graphics and abstract animation</li>
+          <li>Cinematic Blender scenes</li>
+          <li>Experimental shader and GeoNodes looks</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section setup-note">
+      <h2>Important setup note</h2>
+      <p>
+        Create and assign materials to the Source and Target objects first. After that, add the lightning shader for the node setup.
+      </p>
+      <p>
+        This order is important so the Source and Target objects do not accidentally use the node shader.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Tutorial</h2>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/7hGhzYICWeo"
+          title="Pfilio's Auto-Target Lightning tutorial"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="actions">
+        <a class="button" href="https://youtu.be/7hGhzYICWeo" target="_blank" rel="noopener noreferrer">Open tutorial on YouTube</a>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <article class="panel">
+        <h2>License summary</h2>
+        <p>
+          You may use this asset in personal and commercial projects.
+        </p>
+        <p>
+          You may not resell, redistribute, re-upload, rename, repackage, sublicense or claim this asset, the node setup, shader setup, documentation, preview files or modified versions as your own product.
+        </p>
+        <p>
+          For full license terms, read the included License.txt file inside the Gumroad ZIP.
+        </p>
+      </article>
+
+      <article class="panel">
+        <h2>Get the asset</h2>
+        <p>
+          The asset is sold through Gumroad. After purchase, download the ZIP, extract it, and open the included Blender file.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="https://pfiliookeanos.gumroad.com/l/wzxqb" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+          <a class="button" href="index.html">Back to project hub</a>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      © 2026 Pfilio Okeanos / John Goetsch · Pfilio's Auto-Target Lightning
+    </footer>
+  </main>
+</body>
+</html>
