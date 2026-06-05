@@ -625,5 +625,42 @@
       © 2026 Pfilio Okeanos · Games · Tools · VFX · 3D Assets · Editing
     </footer>
   </main>
+
+<script>
+  const releaseTrack = document.querySelector("[data-release-track]");
+  const releasePrev = document.querySelector("[data-release-prev]");
+  const releaseNext = document.querySelector("[data-release-next]");
+
+  function moveReleaseCarousel(direction) {
+    if (!releaseTrack) return;
+
+    const slideWidth = releaseTrack.clientWidth;
+    const maxScroll = releaseTrack.scrollWidth - releaseTrack.clientWidth;
+    const current = releaseTrack.scrollLeft;
+    const nearEnd = current >= maxScroll - 4;
+    const nearStart = current <= 4;
+
+    if (direction > 0 && nearEnd) {
+      releaseTrack.scrollTo({ left: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (direction < 0 && nearStart) {
+      releaseTrack.scrollTo({ left: maxScroll, behavior: "smooth" });
+      return;
+    }
+
+    releaseTrack.scrollBy({
+      left: slideWidth * direction,
+      behavior: "smooth"
+    });
+  }
+
+  if (releasePrev && releaseNext) {
+    releasePrev.addEventListener("click", () => moveReleaseCarousel(-1));
+    releaseNext.addEventListener("click", () => moveReleaseCarousel(1));
+  }
+</script>
+  
 </body>
 </html>
