@@ -1746,242 +1746,370 @@
     </footer>
   </main>
 
+
 <script>
 /* =========================================================
-   SUPER SMILEY SYSTEM
-   Ein einziger Smiley für Side-Head + Trauben-Animation.
-   JS erzeugt HTML + CSS selbst.
+   DUAL SMILEY GRAPE EATER SYSTEM
+   Zwei Smilys bleiben Smilys, fliegen zu Trauben,
+   essen sie und werden größer.
    ========================================================= */
 
 (function () {
-  // Alte Smilys automatisch verstecken
-  const oldSideHeads = document.querySelector(".side-heads");
-  if (oldSideHeads) oldSideHeads.style.display = "none";
+  // Alten Super-Smiley entfernen, falls vorhanden
+  const oldSuper = document.getElementById("superSmiley");
+  if (oldSuper) oldSuper.remove();
 
+  // Alte kleine Trauben-Smiley-Elemente ausblenden, falls sie noch existieren
   document.querySelectorAll(".vine-smiley").forEach((el) => {
     el.style.display = "none";
   });
 
+  // Falls side-heads gelöscht wurde, neu erzeugen
+  let sideHeads = document.querySelector(".side-heads");
+
+  if (!sideHeads) {
+    sideHeads = document.createElement("div");
+    sideHeads.className = "side-heads";
+    sideHeads.setAttribute("aria-hidden", "true");
+
+    sideHeads.innerHTML = `
+      <button class="okeanos-head left idle" type="button" data-eater-head data-side="left">
+        <div class="head-bubble">Nom...</div>
+        <div class="head-inner">
+          <div class="head-eyes">
+            <span class="eye left-eye"></span>
+            <span class="eye right-eye"></span>
+          </div>
+          <div class="head-blush">
+            <span class="blush"></span>
+            <span class="blush"></span>
+          </div>
+          <div class="head-mouth"></div>
+        </div>
+      </button>
+
+      <button class="okeanos-head right idle" type="button" data-eater-head data-side="right">
+        <div class="head-bubble">Crunch...</div>
+        <div class="head-inner">
+          <div class="head-eyes">
+            <span class="eye left-eye"></span>
+            <span class="eye right-eye"></span>
+          </div>
+          <div class="head-blush">
+            <span class="blush"></span>
+            <span class="blush"></span>
+          </div>
+          <div class="head-mouth"></div>
+        </div>
+      </button>
+    `;
+
+    document.body.appendChild(sideHeads);
+  }
+
   // CSS per JavaScript einfügen
   const style = document.createElement("style");
   style.textContent = `
-    #superSmiley {
+    .side-heads {
+      display: block !important;
       position: fixed;
-      left: 34px;
-      top: 50%;
-      width: 76px;
-      height: 76px;
-      border-radius: 50%;
-      z-index: 80;
-      border: 2px solid rgba(77, 232, 255, 0.55);
-      background:
-        radial-gradient(circle at 34% 28%, rgba(255,255,255,0.38), transparent 22%),
-        radial-gradient(circle at 70% 80%, rgba(255,79,216,0.18), transparent 32%),
-        linear-gradient(145deg, #ffe66d, #ffb703 52%, #f77f00);
-      box-shadow:
-        0 0 18px rgba(255, 216, 77, 0.45),
-        0 0 34px rgba(77, 232, 255, 0.20),
-        0 0 54px rgba(179, 107, 255, 0.14);
-      cursor: pointer;
-      pointer-events: auto;
-      transform: translateY(-50%);
-      transition:
-        border-radius 220ms ease,
-        background 220ms ease,
-        box-shadow 220ms ease,
-        filter 220ms ease;
-    }
-
-    #superSmiley:hover {
-      filter: brightness(1.12);
-      box-shadow:
-        0 0 22px rgba(255, 216, 77, 0.55),
-        0 0 44px rgba(77, 232, 255, 0.30),
-        0 0 70px rgba(179, 107, 255, 0.22);
-    }
-
-    #superSmiley .super-eye {
-      position: absolute;
-      top: 23px;
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      background: #101820;
-      box-shadow: 0 0 8px rgba(255,255,255,0.3);
-      transition: transform 180ms ease, border-radius 180ms ease, background 180ms ease;
-    }
-
-    #superSmiley .super-eye.left {
-      left: 21px;
-    }
-
-    #superSmiley .super-eye.right {
-      right: 21px;
-    }
-
-    #superSmiley .super-mouth {
-      position: absolute;
-      left: 50%;
-      bottom: 17px;
-      width: 34px;
-      height: 15px;
-      transform: translateX(-50%);
-      border-bottom: 5px solid #101820;
-      border-radius: 0 0 40px 40px;
-      transition: width 180ms ease, height 180ms ease, border-color 180ms ease;
-    }
-
-    #superSmiley .super-bubble {
-      position: absolute;
-      left: 50%;
-      top: -34px;
-      transform: translateX(-50%) translateY(8px);
-      opacity: 0;
-      white-space: nowrap;
-      color: #dff4ff;
-      background: rgba(10, 16, 28, 0.94);
-      border: 1px solid rgba(77, 232, 255, 0.5);
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 0.78rem;
-      font-weight: bold;
+      inset: 0;
       pointer-events: none;
-      transition: opacity 180ms ease, transform 180ms ease;
+      z-index: 85;
     }
 
-    #superSmiley .grape-dot {
-      position: absolute;
-      width: 18px;
-      height: 18px;
+    .okeanos-head {
+      position: fixed !important;
+      top: 50%;
+      width: 92px;
+      height: 92px;
       border-radius: 50%;
-      opacity: 0;
+      border: 2px solid rgba(77, 232, 255, 0.45);
       background:
-        radial-gradient(circle at 35% 28%, rgba(255,255,255,0.42), transparent 24%),
-        linear-gradient(135deg, rgba(179,107,255,1), rgba(88,166,255,0.88));
-      box-shadow: 0 0 12px rgba(179,107,255,0.42);
-      transition: opacity 180ms ease, transform 180ms ease;
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.22), transparent 22%),
+        radial-gradient(circle at 65% 75%, rgba(179, 107, 255, 0.18), transparent 28%),
+        linear-gradient(145deg, rgba(88,166,255,0.18), rgba(255,79,216,0.12)),
+        rgba(12, 17, 28, 0.94);
+      box-shadow:
+        0 0 30px rgba(88,166,255,0.18),
+        0 0 55px rgba(179,107,255,0.12);
+      pointer-events: auto;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
     }
 
-    #superSmiley .grape-dot:nth-child(5) { left: 29px; top: 6px; }
-    #superSmiley .grape-dot:nth-child(6) { left: 18px; top: 23px; }
-    #superSmiley .grape-dot:nth-child(7) { left: 40px; top: 23px; }
-    #superSmiley .grape-dot:nth-child(8) { left: 29px; top: 40px; }
-    #superSmiley .grape-dot:nth-child(9) { left: 10px; top: 42px; }
-    #superSmiley .grape-dot:nth-child(10) { left: 48px; top: 42px; }
-    #superSmiley .grape-dot:nth-child(11) { left: 29px; top: 58px; }
-
-    #superSmiley.evil .super-eye {
-      border-radius: 2px;
-      background: #ff4fd8;
+    .okeanos-head.left {
+      left: 34px;
+      right: auto;
     }
 
-    #superSmiley.evil .super-eye.left {
-      transform: rotate(-25deg) scaleX(1.25);
+    .okeanos-head.right {
+      right: 34px;
+      left: auto;
     }
 
-    #superSmiley.evil .super-eye.right {
-      transform: rotate(25deg) scaleX(1.25);
+    .head-inner {
+      position: relative;
+      width: 68px;
+      height: 68px;
     }
 
-    #superSmiley.evil .super-mouth {
+    .head-eyes {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      width: 52px;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .eye {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #dff4ff;
+      box-shadow: 0 0 12px rgba(77, 232, 255, 0.7);
+      position: relative;
+      transition: transform 160ms ease, border-radius 160ms ease, background 160ms ease;
+    }
+
+    .eye::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #09131f;
+      top: 4px;
+      left: 4px;
+    }
+
+    .head-mouth {
+      position: absolute;
+      left: 50%;
+      bottom: 13px;
+      width: 34px;
+      height: 14px;
+      transform: translateX(-50%);
+      border-bottom: 4px solid #dff4ff;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 0 12px rgba(77, 232, 255, 0.45);
+      transition: width 160ms ease, height 160ms ease, border-color 160ms ease;
+    }
+
+    .head-blush {
+      position: absolute;
+      top: 38px;
+      left: 50%;
+      width: 58px;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+      opacity: 0.18;
+    }
+
+    .blush {
+      width: 13px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255, 79, 216, 0.55);
+      filter: blur(1px);
+    }
+
+    .head-bubble {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      white-space: nowrap;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #dff4ff;
+      border: 1px solid rgba(77, 232, 255, 0.45);
+      background: rgba(10, 16, 28, 0.92);
+      border-radius: 999px;
+      padding: 5px 9px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    .okeanos-head.idle {
+      animation: eaterIdle 3.8s ease-in-out infinite;
+    }
+
+    .okeanos-head.right.idle {
+      animation-delay: 0.8s;
+    }
+
+    .okeanos-head.eating .head-mouth {
       width: 46px;
       height: 24px;
       border-bottom-color: #ff4fd8;
     }
 
-    #superSmiley.evil .super-bubble {
+    .okeanos-head.eating .head-bubble {
       opacity: 1;
       transform: translateX(-50%) translateY(-2px);
     }
 
-    #superSmiley.grape-mode {
-      border-radius: 32% 38% 45% 42%;
-      background: rgba(179, 107, 255, 0.14);
-      border-color: rgba(179, 107, 255, 0.65);
-      box-shadow:
-        0 0 24px rgba(179,107,255,0.45),
-        0 0 46px rgba(77,232,255,0.18);
+    .okeanos-head.eating .eye {
+      background: #ffb7f3;
+      border-radius: 4px;
     }
 
-    #superSmiley.grape-mode .super-eye,
-    #superSmiley.grape-mode .super-mouth {
-      opacity: 0;
+    .okeanos-head.evil .eye {
+      border-radius: 2px;
+      background: #ff4fd8;
     }
 
-    #superSmiley.grape-mode .grape-dot {
+    .okeanos-head.evil .left-eye {
+      transform: rotate(-25deg) scaleX(1.2);
+    }
+
+    .okeanos-head.evil .right-eye {
+      transform: rotate(25deg) scaleX(1.2);
+    }
+
+    .okeanos-head.evil .head-mouth {
+      width: 50px;
+      height: 26px;
+      border-bottom-color: #ff4fd8;
+    }
+
+    .okeanos-head.evil .head-bubble {
       opacity: 1;
-      transform: scale(1);
+      transform: translateX(-50%) translateY(-2px);
     }
 
-    @keyframes superSmileyIdle {
-      0%, 100% { transform: translateY(-50%) translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-50%) translateY(-12px) rotate(3deg); }
+    .grape-cluster.eaten-grape {
+      opacity: 0 !important;
+      transform: scale(0) !important;
+      pointer-events: none !important;
+      transition: opacity 220ms ease, transform 220ms ease;
     }
 
-    @keyframes superSmileyLaugh {
-      0% { transform: translateY(-50%) rotate(0deg) scale(1); }
-      20% { transform: translateY(-50%) rotate(-8deg) scale(1.08); }
-      40% { transform: translateY(-50%) rotate(8deg) scale(1.12); }
-      60% { transform: translateY(-50%) rotate(-6deg) scale(1.08); }
-      80% { transform: translateY(-50%) rotate(5deg) scale(1.05); }
-      100% { transform: translateY(-50%) rotate(0deg) scale(1); }
-    }
+    @keyframes eaterIdle {
+      0%, 100% {
+        transform: translateY(-50%) translateY(0px) rotate(0deg);
+      }
 
-    #superSmiley.idle {
-      animation: superSmileyIdle 3.6s ease-in-out infinite;
-    }
-
-    #superSmiley.evil {
-      animation: superSmileyLaugh 0.62s ease-in-out 2;
+      50% {
+        transform: translateY(-50%) translateY(-10px) rotate(3deg);
+      }
     }
 
     @media (max-width: 1180px) {
-      #superSmiley {
-        display: none;
+      .side-heads {
+        display: none !important;
       }
     }
   `;
   document.head.appendChild(style);
 
-  // Super-Smiley HTML erzeugen
-  const smiley = document.createElement("button");
-  smiley.id = "superSmiley";
-  smiley.className = "idle";
-  smiley.type = "button";
-  smiley.setAttribute("aria-label", "Super Smiley");
+  const heads = Array.from(document.querySelectorAll(".okeanos-head"));
 
-  smiley.innerHTML = `
-    <div class="super-bubble">Muhaha...</div>
-    <span class="super-eye left"></span>
-    <span class="super-eye right"></span>
-    <span class="super-mouth"></span>
-    <span class="grape-dot"></span>
-    <span class="grape-dot"></span>
-    <span class="grape-dot"></span>
-    <span class="grape-dot"></span>
-    <span class="grape-dot"></span>
-    <span class="grape-dot"></span>
-    <span class="grape-dot"></span>
-  `;
+  heads.forEach((head, index) => {
+    head.setAttribute("data-eater-head", "");
+    head.dataset.eaten = "0";
+    head.dataset.scale = "1";
 
-  document.body.appendChild(smiley);
+    if (!head.dataset.side) {
+      head.dataset.side = head.classList.contains("right") ? "right" : "left";
+    }
 
-  let busy = false;
+    head.addEventListener("click", () => {
+      evilLaugh(head);
+    });
+  });
 
-  function moveSmileyTo(x, y, duration = 1400) {
-    smiley.classList.remove("idle");
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
-    return smiley.animate(
+  function getScale(head) {
+    return parseFloat(head.dataset.scale || "1");
+  }
+
+  function setScale(head, scale) {
+    head.dataset.scale = String(scale);
+    head.style.transform = `translateY(-50%) scale(${scale})`;
+  }
+
+  function normalizeHeadPosition(head) {
+    const rect = head.getBoundingClientRect();
+    const scale = getScale(head);
+
+    head.classList.remove("idle");
+
+    head.style.right = "auto";
+    head.style.left = `${rect.left}px`;
+    head.style.top = `${rect.top + rect.height / 2}px`;
+    head.style.transform = `translateY(-50%) scale(${scale})`;
+  }
+
+  function getHomePosition(head) {
+    const side = head.dataset.side;
+    const baseWidth = 92;
+
+    if (side === "right") {
+      return {
+        x: window.innerWidth - baseWidth - 34,
+        y: window.innerHeight * 0.5
+      };
+    }
+
+    return {
+      x: 34,
+      y: window.innerHeight * 0.5
+    };
+  }
+
+  function getTargetsForHead(head) {
+    const side = head.dataset.side;
+    const selector = side === "right"
+      ? ".vine-right .grape-cluster"
+      : ".vine-left .grape-cluster";
+
+    let grapes = Array.from(document.querySelectorAll(selector));
+
+    if (grapes.length === 0) {
+      grapes = Array.from(document.querySelectorAll(".grape-cluster"));
+    }
+
+    return grapes.map((grape) => {
+      const rect = grape.getBoundingClientRect();
+
+      return {
+        grape,
+        x: rect.left + rect.width / 2 - 46,
+        y: rect.top + rect.height / 2
+      };
+    });
+  }
+
+  async function flyTo(head, x, y, duration = 1500) {
+    normalizeHeadPosition(head);
+
+    const startLeft = parseFloat(head.style.left);
+    const startTop = parseFloat(head.style.top);
+    const scale = getScale(head);
+
+    const animation = head.animate(
       [
         {
-          left: smiley.style.left || "34px",
-          top: smiley.style.top || "50%",
-          transform: "translateY(-50%) scale(1) rotate(0deg)"
+          left: `${startLeft}px`,
+          top: `${startTop}px`,
+          transform: `translateY(-50%) scale(${scale}) rotate(0deg)`
         },
         {
           left: `${x}px`,
           top: `${y}px`,
-          transform: "translateY(-50%) scale(1.08) rotate(12deg)"
+          transform: `translateY(-50%) scale(${scale * 1.06}) rotate(10deg)`
         }
       ],
       {
@@ -1989,97 +2117,82 @@
         easing: "cubic-bezier(.22,1,.36,1)",
         fill: "forwards"
       }
-    ).finished.then(() => {
-      smiley.style.left = `${x}px`;
-      smiley.style.top = `${y}px`;
-      smiley.style.transform = "translateY(-50%)";
-    });
+    );
+
+    await animation.finished;
+
+    head.style.left = `${x}px`;
+    head.style.top = `${y}px`;
+    head.style.transform = `translateY(-50%) scale(${scale})`;
   }
 
-  function evilLaugh() {
-    smiley.classList.remove("grape-mode");
-    smiley.classList.remove("evil");
-    void smiley.offsetWidth;
-    smiley.classList.add("evil");
+  async function eatGrape(head, grape) {
+    if (!grape) return;
+
+    head.classList.add("eating");
+    grape.classList.add("eaten-grape");
+
+    await wait(520);
+
+    const eaten = parseInt(head.dataset.eaten || "0", 10) + 1;
+    head.dataset.eaten = String(eaten);
+
+    const newScale = Math.min(1 + eaten * 0.09, 1.45);
+    setScale(head, newScale);
+
+    await wait(360);
+
+    head.classList.remove("eating");
+
+    // Traube kommt später zurück, damit die Animation weiterleben kann
+    setTimeout(() => {
+      grape.classList.remove("eaten-grape");
+    }, 9000);
+  }
+
+  function evilLaugh(head) {
+    head.classList.remove("idle");
+    head.classList.remove("evil");
+
+    void head.offsetWidth;
+
+    head.classList.add("evil");
 
     setTimeout(() => {
-      smiley.classList.remove("evil");
-      smiley.classList.add("idle");
+      head.classList.remove("evil");
+      head.classList.add("idle");
     }, 1300);
   }
 
-  function becomeGrape() {
-    smiley.classList.remove("evil");
-    smiley.classList.add("grape-mode");
+  async function patrol(head, offset = 0) {
+    await wait(offset);
 
-    setTimeout(() => {
-      smiley.classList.remove("grape-mode");
-    }, 950);
-  }
+    while (true) {
+      const targets = getTargetsForHead(head);
 
-  function getGrapeTargets() {
-    const grapes = Array.from(document.querySelectorAll(".grape-cluster"));
+      for (const target of targets) {
+        await flyTo(head, target.x, target.y, 1500);
+        await eatGrape(head, target.grape);
+        await wait(700);
+      }
 
-    if (grapes.length > 0) {
-      return grapes.map((grape) => {
-        const rect = grape.getBoundingClientRect();
-        return {
-          x: rect.left + rect.width / 2 - 38,
-          y: rect.top + rect.height / 2
-        };
-      });
+      const home = getHomePosition(head);
+      await flyTo(head, home.x, home.y, 1700);
+
+      head.classList.add("idle");
+
+      await wait(4500);
     }
-
-    // Fallback, falls keine Trauben existieren
-    return [
-      { x: 52, y: window.innerHeight * 0.25 },
-      { x: window.innerWidth - 128, y: window.innerHeight * 0.50 },
-      { x: 52, y: window.innerHeight * 0.75 }
-    ];
   }
 
-  async function grapePatrolLoop() {
-    if (busy) return;
+  // Zwei Smilys starten versetzt
+  const leftHead = heads.find((h) => h.dataset.side === "left") || heads[0];
+  const rightHead = heads.find((h) => h.dataset.side === "right") || heads[1];
 
-    const targets = getGrapeTargets();
-
-    for (const target of targets) {
-      if (busy) return;
-
-      await moveSmileyTo(target.x, target.y, 1600);
-      becomeGrape();
-
-      await new Promise((resolve) => setTimeout(resolve, 1300));
-    }
-
-    // Zur linken Seite zurück
-    await moveSmileyTo(34, window.innerHeight * 0.5, 1800);
-    smiley.classList.add("idle");
-  }
-
-  // Klick = böse lachen
-  smiley.addEventListener("click", () => {
-    busy = true;
-    evilLaugh();
-
-    setTimeout(() => {
-      busy = false;
-    }, 1500);
-  });
-
-  // Automatischer Trauben-Flug alle paar Sekunden
-  setInterval(() => {
-    if (!busy) grapePatrolLoop();
-  }, 9500);
-
-  // Erster Start leicht verzögert
-  setTimeout(() => {
-    grapePatrolLoop();
-  }, 2600);
+  if (leftHead) patrol(leftHead, 1200);
+  if (rightHead) patrol(rightHead, 3000);
 })();
 </script>
-
-
 
 
 
