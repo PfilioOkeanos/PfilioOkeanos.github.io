@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- =========================================================
+       AUSTAUSCHBARER BLOCK: SEO / SEITEN-META
+       ========================================================= -->
+  <title>Editing & Videos | Pfilio Okeanos</title>
+  <meta name="description" content="Editing- und Video-Projekte von Pfilio Okeanos: DaVinci Resolve, Anime Edits, Reels, Shorts, Sounddesign, Tutorials und filmische Experimente." />
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --line: #30363d;
+      --text: #f0f6fc;
+      --muted: #c9d1d9;
+      --subtle: #8b949e;
+      --blue: #58a6ff;
+      --cyan: #4de8ff;
+      --violet: #b36bff;
+      --pink: #ff4fd8;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(88, 166, 255, 0.14), transparent 34%),
+        radial-gradient(circle at 85% 12%, rgba(255, 79, 216, 0.12), transparent 30%),
+        #0d1117;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    header {
+      padding: 48px 0 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tag {
+      color: var(--blue);
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1;
+      margin: 16px 0;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin: 0 0 16px;
+    }
+
+    h3 { font-size: 1.25rem; }
+
+    .intro {
+      max-width: 780px;
+      font-size: 1.16rem;
+      color: var(--muted);
+    }
+
+    .section { margin-top: 56px; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      color: var(--subtle);
+      margin: 0;
+      max-width: 560px;
+    }
+
+    .links,
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .links a,
+    .button {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: #21262d;
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 160ms ease;
+    }
+
+    .links a:hover,
+    .button:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      border-color: rgba(77, 232, 255, 0.5);
+      background: linear-gradient(135deg, rgba(88,166,255,0.28), rgba(179,107,255,0.24));
+      box-shadow: 0 0 24px rgba(88, 166, 255, 0.16);
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 24px;
+      border: 1px solid rgba(77, 232, 255, 0.35);
+      background:
+        linear-gradient(135deg, rgba(88, 166, 255, 0.16), rgba(255, 79, 216, 0.10)),
+        var(--card);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-media {
+      min-height: 380px;
+      background:
+        radial-gradient(circle at 30% 24%, rgba(77, 232, 255, 0.18), transparent 34%),
+        radial-gradient(circle at 70% 78%, rgba(255, 79, 216, 0.16), transparent 34%),
+        linear-gradient(135deg, rgba(88,166,255,0.08), rgba(255,79,216,0.06)),
+        #05070d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 28px;
+    }
+
+    .hero-copy {
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-copy h2 {
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      line-height: 1.04;
+      margin: 10px 0 12px;
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      border: 1px solid rgba(88, 166, 255, 0.28);
+      background: rgba(88, 166, 255, 0.10);
+      color: #dff4ff;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: bold;
+    }
+
+    .feature-list {
+      padding-left: 18px;
+      margin: 10px 0 4px;
+      color: var(--muted);
+    }
+
+    .feature-list li { margin: 6px 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(22, 27, 34, 0.96), rgba(13, 17, 23, 0.96));
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    a.project-card {
+      display: block;
+      text-decoration: none;
+      transition: 160ms ease;
+    }
+
+    a.project-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 54px rgba(88, 166, 255, 0.12);
+    }
+
+    .project-preview {
+      min-height: 190px;
+      background:
+        linear-gradient(135deg, rgba(88,166,255,0.18), rgba(255,255,255,0.03)),
+        #0d1117;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 18px;
+    }
+
+    .project-preview img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .project-content { padding: 20px; }
+
+    .project-content h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .project-status {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--cyan);
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .note {
+      color: var(--subtle);
+      font-size: 0.95rem;
+      margin-top: 14px;
+    }
+
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--subtle);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .section-head { display: block; }
+
+      .hero-card { grid-template-columns: 1fr; }
+
+      .hero-media { min-height: 260px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <!-- =========================================================
+         AUSTAUSCHBARER BLOCK: HEADER / NAVIGATION
+         ========================================================= -->
+    <header>
+      <div class="tag">Projektbereich</div>
+      <h1>Editing & Videos</h1>
+      <p class="intro">
+        DaVinci Resolve, Fusion, Anime Edits, Reels, Shorts, Sounddesign,
+        filmische Experimente, Tutorials und Social-Media-Video-Workflows.
+      </p>
+
+      <div class="links" aria-label="Navigation">
+        <a href="index.html">← Zur Startseite</a>
+        <a href="vfx-geonodes.html">VFX & GeoNodes</a>
+        <a href="game-project.html">Game Project</a>
+        <a href="https://www.youtube.com/@oOhnnOo" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.instagram.com/pfilio_okeanos/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@pfiliookeanos" target="_blank" rel="noopener noreferrer">TikTok</a>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         AUSTAUSCHBARER BLOCK: FEATURED EDITING SYSTEM
+         Hier immer den wichtigsten aktuellen Editing-Fokus einsetzen.
+         ========================================================= -->
+    <section class="section" id="featured-editing">
+      <div class="section-head">
+        <div>
+          <div class="tag">Aktueller Editing-Fokus</div>
+          <h2>DaVinci Resolve Editing Pipeline</h2>
+        </div>
+        <p>
+          Editing, Depth, Tracking, Color, Sound und kurze Social-Clips als wiederholbarer Workflow.
+        </p>
+      </div>
+
+      <article class="hero-card">
+        <div class="hero-media">
+          DaVinci Resolve<br>
+          Fusion · Reels · Shorts · Sounddesign
+        </div>
+
+        <div class="hero-copy">
+          <div class="badges">
+            <span class="badge">DaVinci Resolve</span>
+            <span class="badge">Fusion</span>
+            <span class="badge">Shorts</span>
+            <span class="badge">Sounddesign</span>
+          </div>
+
+          <h2>Editing als Output-Maschine</h2>
+
+          <p>
+            Diese Seite sammelt meine Video- und Editing-Projekte:
+            Anime-Edits, Depth-Compositing, Tracking, Aura-Effekte,
+            Color-Grading, Sounddesign und Tutorial-Clips.
+          </p>
+
+          <ul class="feature-list">
+            <li>DaVinci Resolve und Fusion Workflows</li>
+            <li>Anime Edits, Reels, Shorts und Social-Media-Clips</li>
+            <li>Tracking, 2D/3D-Texte, Aura-Effekte und Depth-Layering</li>
+            <li>Sounddesign, Musik, Timing und filmische Übergänge</li>
+          </ul>
+
+          <div class="actions">
+            <a class="button primary" href="#video-library">Video-Bereiche ansehen</a>
+            <a class="button" href="https://www.youtube.com/@oOhnnOo" target="_blank" rel="noopener noreferrer">YouTube öffnen</a>
+          </div>
+
+          <p class="note">
+            Diese Seite ist als Übersicht gedacht. Einzelne größere Video-Projekte oder Tutorial-Serien können später eigene Unterseiten bekommen.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- =========================================================
+         AUSTAUSCHBARER BLOCK: VIDEO / EDITING LISTE
+         Neue Video-Bereiche immer als neue Karte einfügen.
+         ========================================================= -->
+    <section class="section" id="video-library">
+      <div class="section-head">
+        <div>
+          <div class="tag">Video-Bibliothek</div>
+          <h2>Alle Editing & Video Bereiche</h2>
+        </div>
+        <p>
+          Übersicht über laufende, geplante und veröffentlichte Video-Workflows.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <!-- VIDEO CARD START: Anime Edits -->
+        <article class="project-card">
+          <div class="project-preview">Anime Edit Preview</div>
+          <div class="project-content">
+            <div class="badges">
+              <span class="badge">Editing</span>
+              <span class="badge">Anime</span>
+              <span class="badge">Reels</span>
+            </div>
+
+            <h3>Anime Edits</h3>
+            <p>
+              Kurze, emotionale und stylische Edits mit Timing, Sound-Hits, Color-Looks,
+              Übergängen und Social-Media-Formatierung.
+            </p>
+
+            <span class="project-status">Aktiver Bereich</span>
+          </div>
+        </article>
+        <!-- VIDEO CARD END: Anime Edits -->
+
+        <!-- VIDEO CARD START: Depth Compositing -->
+        <article class="project-card">
+          <div class="project-preview">Depth Composite Preview</div>
+          <div class="project-content">
+            <div class="badges">
+              <span class="badge">Fusion</span>
+              <span class="badge">Depth</span>
+              <span class="badge">Compositing</span>
+            </div>
+
+            <h3>Depth & Layering</h3>
+            <p>
+              Aufbau glaubwürdiger Tiefe mit Vordergrund, Mittelgrund, Hintergrund,
+              Parallaxen-Gefühl, Masken und sauberem Compositing.
+            </p>
+
+            <span class="project-status">Lern- und Praxisfokus</span>
+          </div>
+        </article>
+        <!-- VIDEO CARD END: Depth Compositing -->
+
+        <!-- VIDEO CARD START: Tracking -->
+        <article class="project-card">
+          <div class="project-preview">Tracking Preview</div>
+          <div class="project-content">
+            <div class="badges">
+              <span class="badge">Fusion</span>
+              <span class="badge">Tracking</span>
+              <span class="badge">Text</span>
+            </div>
+
+            <h3>Tracking & Text Integration</h3>
+            <p>
+              Planar Tracking, 2D-/3D-Schrift, Video-in-Video-Integration,
+              Frame-Interpolation und stabile Einbettung in bewegtes Material.
+            </p>
+
+            <span class="project-status">Aktiv im Aufbau</span>
+          </div>
+        </article>
+        <!-- VIDEO CARD END: Tracking -->
+
+        <!-- VIDEO CARD START: Aura / FX -->
+        <article class="project-card">
+          <div class="project-preview">Aura FX Preview</div>
+          <div class="project-content">
+            <div class="badges">
+              <span class="badge">VFX</span>
+              <span class="badge">Aura</span>
+              <span class="badge">Stylized</span>
+            </div>
+
+            <h3>Aura & Character FX</h3>
+            <p>
+              Effekte um Figuren herum: Aura, Glow, Energie, Masken, Soft Edges,
+              Farbverschiebung und stilisierte Power-Up-Looks.
+            </p>
+
+            <span class="project-status">Geplant / Übung</span>
+          </div>
+        </article>
+        <!-- VIDEO CARD END: Aura / FX -->
+
+        <!-- VIDEO CARD START: Tutorials -->
+        <article class="project-card">
+          <div class="project-preview">Tutorial Preview</div>
+          <div class="project-content">
+            <div class="badges">
+              <span class="badge">YouTube</span>
+              <span class="badge">Tutorial</span>
+              <span class="badge">Workflow</span>
+            </div>
+
+            <h3>Tutorials & Breakdown Clips</h3>
+            <p>
+              Kurze Erklärvideos, Asset-Breakdowns, Workflow-Zusammenfassungen
+              und später geschnittene Tutorials aus Blender, Unreal und DaVinci.
+            </p>
+
+            <span class="project-status">Wachsender Bereich</span>
+          </div>
+        </article>
+        <!-- VIDEO CARD END: Tutorials -->
+
+        <!-- VIDEO CARD START: Shorts / Reels Pipeline -->
+        <article class="project-card">
+          <div class="project-preview">Shorts Pipeline Preview</div>
+          <div class="project-content">
+            <div class="badges">
+              <span class="badge">Shorts</span>
+              <span class="badge">TikTok</span>
+              <span class="badge">Instagram</span>
+            </div>
+
+            <h3>Shorts & Reels Pipeline</h3>
+            <p>
+              Ein wiederholbarer Veröffentlichungs-Workflow für YouTube Shorts,
+              TikTok, Instagram Reels und Facebook-Clips.
+            </p>
+
+            <span class="project-status">In Aufbau</span>
+          </div>
+        </article>
+        <!-- VIDEO CARD END: Shorts / Reels Pipeline -->
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         AUSTAUSCHBARER BLOCK: EDITING FOKUS / PRODUKTIONSNOTIZEN
+         Kann später erweitert oder gelöscht werden.
+         ========================================================= -->
+    <section class="section" id="editing-focus">
+      <div class="section-head">
+        <div>
+          <div class="tag">Arbeitslogik</div>
+          <h2>Was dieser Bereich leisten soll</h2>
+        </div>
+        <p>
+          Editing ist der schnelle Output-Kanal für Assets, Tests, Tutorials und Reichweite.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="project-card">
+          <div class="project-content">
+            <h3>Schneller Output</h3>
+            <p>
+              Aus Blender-, Unreal- und VFX-Arbeiten sollen kurze Clips, Reels und Tutorials entstehen,
+              ohne jedes Mal den Workflow neu zu bauen.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-content">
+            <h3>Wiederholbarer Look</h3>
+            <p>
+              Color-Grading, Glow, Depth, Sound-Hits und Übergänge sollen als wiederverwendbare Bausteine funktionieren.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-content">
+            <h3>Portfolio + Marketing</h3>
+            <p>
+              Videos dienen nicht nur als Kunst/Übung, sondern auch als Produktvorschau, Tutorial, Social Proof und Traffic.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         AUSTAUSCHBARER BLOCK: FOOTER
+         ========================================================= -->
+    <footer>
+      © 2026 Pfilio Okeanos · Editing · Videos · DaVinci Resolve · Fusion · Reels
+    </footer>
+  </main>
+</body>
+</html>
