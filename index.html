@@ -917,6 +917,29 @@
     </footer>
   </main>
 
+
+<script>
+  const evilHeads = document.querySelectorAll("[data-evil-head]");
+
+  evilHeads.forEach((head) => {
+    head.addEventListener("click", () => {
+      head.classList.remove("evil");
+
+      // Animation neu triggern
+      void head.offsetWidth;
+
+      head.classList.add("evil");
+
+      setTimeout(() => {
+        head.classList.remove("evil");
+      }, 1400);
+    });
+  });
+</script>
+
+
+  
+
 <script>
   const releaseTrack = document.querySelector("[data-release-track]");
   const releasePrev = document.querySelector("[data-release-prev]");
