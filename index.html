@@ -384,10 +384,301 @@
         min-height: 260px;
       }
     }
+
+
+
+/* =========================================================
+   AUSTAUSCHBARER STYLE-BLOCK: SIDE SMILEY HEADS
+   Linke und rechte Deko-Köpfe mit Klick-Lachanimaion
+   ========================================================= */
+
+.side-heads {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.okeanos-head {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 2px solid rgba(77, 232, 255, 0.35);
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.22), transparent 22%),
+    radial-gradient(circle at 65% 75%, rgba(179, 107, 255, 0.18), transparent 28%),
+    linear-gradient(145deg, rgba(88,166,255,0.18), rgba(255,79,216,0.12)),
+    rgba(12, 17, 28, 0.94);
+  box-shadow:
+    0 0 30px rgba(88,166,255,0.18),
+    0 0 55px rgba(179,107,255,0.12);
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  overflow: visible;
+}
+
+.okeanos-head:hover {
+  transform: translateY(-50%) scale(1.04);
+  border-color: rgba(77, 232, 255, 0.7);
+  box-shadow:
+    0 0 38px rgba(88,166,255,0.28),
+    0 0 70px rgba(179,107,255,0.18);
+}
+
+.okeanos-head.left {
+  left: 34px;
+}
+
+.okeanos-head.right {
+  right: 34px;
+}
+
+.head-inner {
+  position: relative;
+  width: 88px;
+  height: 88px;
+}
+
+.head-eyes {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  width: 68px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.eye {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #dff4ff;
+  box-shadow: 0 0 14px rgba(77, 232, 255, 0.7);
+  position: relative;
+  transition: transform 160ms ease, border-radius 160ms ease, background 160ms ease;
+}
+
+.eye::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #09131f;
+  top: 5px;
+  left: 5px;
+}
+
+.head-mouth {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: 44px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-bottom: 5px solid #dff4ff;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 0 12px rgba(77, 232, 255, 0.45);
+  transition: width 160ms ease, height 160ms ease, border-color 160ms ease;
+}
+
+.head-blush {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  width: 76px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.18;
+}
+
+.blush {
+  width: 16px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 79, 216, 0.55);
+  filter: blur(1px);
+}
+
+.head-bubble {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  white-space: nowrap;
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  color: #dff4ff;
+  border: 1px solid rgba(77, 232, 255, 0.45);
+  background: rgba(10, 16, 28, 0.92);
+  border-radius: 999px;
+  padding: 6px 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.okeanos-head.idle {
+  animation: okeanosFloat 3.8s ease-in-out infinite;
+}
+
+.okeanos-head.right.idle {
+  animation-delay: 0.8s;
+}
+
+@keyframes okeanosFloat {
+  0%, 100% { transform: translateY(-50%) translateY(0px); }
+  50% { transform: translateY(-50%) translateY(-10px); }
+}
+
+.okeanos-head.evil {
+  animation: evilLaugh 0.55s ease-in-out 2;
+}
+
+@keyframes evilLaugh {
+  0%   { transform: translateY(-50%) rotate(0deg) scale(1); }
+  25%  { transform: translateY(-50%) rotate(-5deg) scale(1.05); }
+  50%  { transform: translateY(-50%) rotate(5deg) scale(1.08); }
+  75%  { transform: translateY(-50%) rotate(-4deg) scale(1.04); }
+  100% { transform: translateY(-50%) rotate(0deg) scale(1); }
+}
+
+.okeanos-head.evil .eye {
+  border-radius: 2px;
+  background: #ff6be6;
+}
+
+.okeanos-head.evil .eye.left-eye {
+  transform: rotate(-24deg) scaleX(1.1);
+}
+
+.okeanos-head.evil .eye.right-eye {
+  transform: rotate(24deg) scaleX(1.1);
+}
+
+.okeanos-head.evil .head-mouth {
+  width: 56px;
+  height: 26px;
+  border-bottom-color: #ff8cf0;
+}
+
+.okeanos-head.evil .head-bubble {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-16px);
+}
+
+@media (max-width: 1500px) {
+  .okeanos-head {
+    width: 105px;
+    height: 105px;
+  }
+
+  .okeanos-head.left {
+    left: 10px;
+  }
+
+  .okeanos-head.right {
+    right: 10px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .side-heads {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+    
   </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </head>
 
 <body>
+
+
+
+
+<!-- =========================================================
+     AUSTAUSCHBARER BLOCK: SIDE SMILEY HEADS
+     Linke und rechte klickbare Köpfe
+     ========================================================= -->
+<div class="side-heads" aria-hidden="true">
+  <button class="okeanos-head left idle" type="button" data-evil-head>
+    <div class="head-bubble">Hehe...</div>
+    <div class="head-inner">
+      <div class="head-eyes">
+        <span class="eye left-eye"></span>
+        <span class="eye right-eye"></span>
+      </div>
+      <div class="head-blush">
+        <span class="blush"></span>
+        <span class="blush"></span>
+      </div>
+      <div class="head-mouth"></div>
+    </div>
+  </button>
+
+  <button class="okeanos-head right idle" type="button" data-evil-head>
+    <div class="head-bubble">Muhaha...</div>
+    <div class="head-inner">
+      <div class="head-eyes">
+        <span class="eye left-eye"></span>
+        <span class="eye right-eye"></span>
+      </div>
+      <div class="head-blush">
+        <span class="blush"></span>
+        <span class="blush"></span>
+      </div>
+      <div class="head-mouth"></div>
+    </div>
+  </button>
+</div>
+
+
+
+
+
+
+  
   <main class="page">
 
     <!-- =========================================================
