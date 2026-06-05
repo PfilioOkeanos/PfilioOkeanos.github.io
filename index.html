@@ -14,33 +14,39 @@
   <style>
 
 
+
 /* =========================================================
-   AUSTAUSCHBARER STYLE-BLOCK: AMBULANCE NAME ANIMATION
+   AUSTAUSCHBARER STYLE-BLOCK: AMBULANCE NAME ANIMATION V2
+   Krankenwagen fährt rein, Buchstaben fallen hinten raus,
+   Krankenwagen fährt danach wieder weg
    ========================================================= */
 
 .hero-name-scene {
   position: relative;
-  min-height: 190px;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow: visible;
+  justify-content: flex-end;
+  overflow: hidden;
 }
 
-.ambulance-wrap {
+.ambulance-stage {
   position: relative;
-  height: 82px;
-  margin-bottom: 8px;
-  overflow: visible;
+  height: 95px;
+  margin-bottom: 6px;
+  overflow: hidden;
 }
 
 .ambulance {
   position: absolute;
-  left: -220px;
-  top: 0;
-  width: 180px;
-  height: 72px;
-  animation: ambulanceDriveIn 2.2s ease-out forwards;
+  top: 6px;
+  left: -240px;
+  width: 190px;
+  height: 78px;
+  z-index: 3;
+  animation:
+    ambulanceDriveIn 2.1s ease-out forwards,
+    ambulanceDriveOut 1.7s ease-in forwards 5.6s;
 }
 
 .ambulance-body {
@@ -51,59 +57,60 @@
 .ambulance-box {
   position: absolute;
   left: 0;
-  top: 8px;
-  width: 120px;
-  height: 44px;
-  border-radius: 10px 6px 6px 10px;
+  top: 10px;
+  width: 124px;
+  height: 46px;
+  border-radius: 8px 4px 4px 8px;
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(215,230,245,0.96));
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(220,230,240,0.98));
   border: 2px solid rgba(77, 232, 255, 0.18);
   box-shadow:
-    0 0 24px rgba(88, 166, 255, 0.18),
-    inset 0 -6px 12px rgba(0,0,0,0.08);
+    0 0 24px rgba(88,166,255,0.14),
+    inset 0 -6px 10px rgba(0,0,0,0.08);
+  overflow: visible;
 }
 
 .ambulance-cabin {
   position: absolute;
-  left: 108px;
-  top: 16px;
+  left: 112px;
+  top: 18px;
   width: 52px;
-  height: 36px;
+  height: 34px;
   border-radius: 10px 12px 8px 8px;
   background:
-    linear-gradient(180deg, rgba(250,250,252,0.98), rgba(218,228,240,0.96));
+    linear-gradient(180deg, rgba(248,248,252,0.98), rgba(218,228,240,0.96));
   border: 2px solid rgba(77, 232, 255, 0.18);
 }
 
 .ambulance-cabin::before {
   content: "";
   position: absolute;
-  left: 7px;
+  left: 6px;
   top: 4px;
   width: 22px;
   height: 12px;
-  border-radius: 5px;
-  background: rgba(88,166,255,0.33);
+  border-radius: 4px;
+  background: rgba(88,166,255,0.32);
 }
 
 .ambulance-cabin::after {
   content: "";
   position: absolute;
   right: 5px;
-  top: 7px;
-  width: 11px;
+  top: 8px;
+  width: 10px;
   height: 8px;
   border-radius: 2px;
-  background: rgba(88,166,255,0.25);
+  background: rgba(88,166,255,0.24);
 }
 
 .ambulance-cross {
   position: absolute;
-  left: 14px;
-  top: 7px;
-  font-size: 1.3rem;
+  left: 44px;
+  top: 6px;
+  font-size: 1.25rem;
   font-weight: 900;
-  color: #ff4f6d;
+  color: #ff516d;
   line-height: 1;
 }
 
@@ -113,25 +120,23 @@
   right: 0;
   bottom: 8px;
   height: 8px;
-  background: linear-gradient(90deg, #ff5a76, #ff7a8e);
-  opacity: 0.95;
+  background: linear-gradient(90deg, #ff5a76, #ff7f91);
 }
 
-.ambulance-door {
+.ambulance-rear-door {
   position: absolute;
-  right: 8px;
-  top: 5px;
-  width: 26px;
-  height: 30px;
+  left: 3px;
+  top: 4px;
+  width: 24px;
+  height: 32px;
   border-radius: 4px;
-  background: linear-gradient(180deg, rgba(244,248,252,1), rgba(220,230,240,1));
-  border: 1px solid rgba(0,0,0,0.1);
+  background: linear-gradient(180deg, rgba(245,248,252,1), rgba(220,230,240,1));
+  border: 1px solid rgba(0,0,0,0.08);
   transform-origin: left center;
-  animation: ambulanceDoorOpen 0.75s ease forwards;
-  animation-delay: 2.1s;
+  animation: rearDoorOpen 0.65s ease forwards 2.0s;
 }
 
-.ambulance-door::after {
+.ambulance-rear-door::after {
   content: "";
   position: absolute;
   right: 4px;
@@ -139,7 +144,7 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(20, 30, 40, 0.55);
+  background: rgba(16, 24, 32, 0.5);
 }
 
 .wheel {
@@ -154,11 +159,11 @@
 }
 
 .wheel-left {
-  left: 18px;
+  left: 16px;
 }
 
 .wheel-right {
-  right: 16px;
+  right: 18px;
 }
 
 .falling-name {
@@ -169,32 +174,34 @@
   margin: 0;
   font-size: clamp(2.4rem, 6vw, 4.8rem);
   line-height: 1;
-  min-height: 92px;
+  min-height: 96px;
+  position: relative;
+  z-index: 1;
 }
 
-.falling-name span {
+.drop-letter {
   display: inline-block;
   opacity: 0;
-  transform: translateY(-120px) rotate(-12deg);
-  animation: letterDrop 0.72s cubic-bezier(.21,1.23,.46,1) forwards;
+  transform: translate(-310px, -86px) rotate(-10deg);
+  animation: letterFallFromVan 0.82s cubic-bezier(.23,1.2,.4,1) forwards;
   color: var(--text);
-  text-shadow: 0 8px 22px rgba(88,166,255,0.10);
+  text-shadow: 0 8px 24px rgba(88,166,255,0.10);
 }
 
-.falling-name span:nth-child(1)  { animation-delay: 2.45s; }
-.falling-name span:nth-child(2)  { animation-delay: 2.56s; }
-.falling-name span:nth-child(3)  { animation-delay: 2.67s; }
-.falling-name span:nth-child(4)  { animation-delay: 2.78s; }
-.falling-name span:nth-child(5)  { animation-delay: 2.89s; }
-.falling-name span:nth-child(6)  { animation-delay: 3.00s; }
-.falling-name span:nth-child(7)  { animation-delay: 3.10s; }
-.falling-name span:nth-child(8)  { animation-delay: 3.22s; }
-.falling-name span:nth-child(9)  { animation-delay: 3.33s; }
-.falling-name span:nth-child(10) { animation-delay: 3.44s; }
-.falling-name span:nth-child(11) { animation-delay: 3.55s; }
-.falling-name span:nth-child(12) { animation-delay: 3.66s; }
-.falling-name span:nth-child(13) { animation-delay: 3.77s; }
-.falling-name span:nth-child(14) { animation-delay: 3.88s; }
+.drop-letter:nth-child(1)  { animation-delay: 2.25s; }
+.drop-letter:nth-child(2)  { animation-delay: 2.36s; }
+.drop-letter:nth-child(3)  { animation-delay: 2.47s; }
+.drop-letter:nth-child(4)  { animation-delay: 2.58s; }
+.drop-letter:nth-child(5)  { animation-delay: 2.69s; }
+.drop-letter:nth-child(6)  { animation-delay: 2.80s; }
+.drop-letter:nth-child(7)  { animation-delay: 2.91s; }
+.drop-letter:nth-child(8)  { animation-delay: 3.05s; }
+.drop-letter:nth-child(9)  { animation-delay: 3.16s; }
+.drop-letter:nth-child(10) { animation-delay: 3.27s; }
+.drop-letter:nth-child(11) { animation-delay: 3.38s; }
+.drop-letter:nth-child(12) { animation-delay: 3.49s; }
+.drop-letter:nth-child(13) { animation-delay: 3.60s; }
+.drop-letter:nth-child(14) { animation-delay: 3.71s; }
 
 .name-space {
   width: 0.42em;
@@ -202,82 +209,132 @@
 
 @keyframes ambulanceDriveIn {
   0% {
-    left: -220px;
-    transform: translateX(0);
-  }
-  70% {
-    left: 0;
-    transform: translateX(0);
-  }
-  85% {
-    left: 10px;
-    transform: translateX(0);
+    left: -240px;
   }
   100% {
-    left: 0;
-    transform: translateX(0);
+    left: 140px;
   }
 }
 
-@keyframes ambulanceDoorOpen {
+@keyframes ambulanceDriveOut {
+  0% {
+    left: 140px;
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% + 220px);
+    opacity: 1;
+  }
+}
+
+@keyframes rearDoorOpen {
   0% {
     transform: rotateY(0deg);
   }
   100% {
-    transform: perspective(200px) rotateY(-82deg);
+    transform: perspective(220px) rotateY(-95deg);
   }
 }
 
-@keyframes letterDrop {
+@keyframes letterFallFromVan {
   0% {
     opacity: 0;
-    transform: translateY(-120px) rotate(-12deg);
+    transform: translate(-310px, -86px) rotate(-10deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-235px, -50px) rotate(8deg);
   }
   55% {
     opacity: 1;
-    transform: translateY(10px) rotate(5deg);
+    transform: translate(-120px, 10px) rotate(-5deg);
   }
   75% {
     opacity: 1;
-    transform: translateY(-5px) rotate(-3deg);
+    transform: translate(-55px, -5px) rotate(2deg);
   }
   100% {
     opacity: 1;
-    transform: translateY(0px) rotate(0deg);
+    transform: translate(0px, 0px) rotate(0deg);
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .ambulance {
+    transform: scale(0.9);
+    transform-origin: left top;
+  }
+
+  .falling-name {
+    min-height: 84px;
+  }
+}
+
+@media (max-width: 720px) {
   .hero-name-scene {
-    min-height: 165px;
+    min-height: 185px;
+  }
+
+  .ambulance-stage {
+    height: 82px;
   }
 
   .ambulance {
-    transform: scale(0.88);
+    transform: scale(0.74);
     transform-origin: left top;
   }
 
   .falling-name {
-    min-height: 76px;
+    min-height: 70px;
+  }
+
+  @keyframes ambulanceDriveIn {
+    0% {
+      left: -240px;
+    }
+    100% {
+      left: 70px;
+    }
+  }
+
+  @keyframes ambulanceDriveOut {
+    0% {
+      left: 70px;
+      opacity: 1;
+    }
+    100% {
+      left: calc(100% + 220px);
+      opacity: 1;
+    }
+  }
+
+  .drop-letter {
+    transform: translate(-210px, -74px) rotate(-10deg);
+  }
+
+  @keyframes letterFallFromVan {
+    0% {
+      opacity: 0;
+      transform: translate(-210px, -74px) rotate(-10deg);
+    }
+    25% {
+      opacity: 1;
+      transform: translate(-150px, -42px) rotate(8deg);
+    }
+    55% {
+      opacity: 1;
+      transform: translate(-70px, 8px) rotate(-5deg);
+    }
+    75% {
+      opacity: 1;
+      transform: translate(-28px, -4px) rotate(2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0px, 0px) rotate(0deg);
+    }
   }
 }
-
-@media (max-width: 640px) {
-  .ambulance-wrap {
-    height: 68px;
-  }
-
-  .ambulance {
-    transform: scale(0.72);
-    transform-origin: left top;
-  }
-
-  .falling-name {
-    min-height: 66px;
-    gap: 0;
-  }
-}
-
 
 
 
@@ -946,7 +1003,45 @@
 </div>
 
 
+<!-- =========================================================
+     AUSTAUSCHBARER BLOCK: HERO NAME AMBULANCE ANIMATION V2
+     Krankenwagen fährt rein, hintere Tür öffnet sich,
+     Buchstaben fallen hinten raus, Krankenwagen fährt wieder weg
+     ========================================================= -->
+<div class="hero-name-scene">
+  <div class="ambulance-stage" aria-hidden="true">
+    <div class="ambulance" id="ambulanceAnim">
+      <div class="ambulance-body">
+        <div class="ambulance-box">
+          <div class="ambulance-rear-door"></div>
+          <div class="ambulance-cross">+</div>
+          <div class="ambulance-stripe"></div>
+        </div>
+        <div class="ambulance-cabin"></div>
+      </div>
 
+      <div class="wheel wheel-left"></div>
+      <div class="wheel wheel-right"></div>
+    </div>
+  </div>
+
+  <h1 class="falling-name" id="fallingName">
+    <span class="drop-letter">P</span>
+    <span class="drop-letter">f</span>
+    <span class="drop-letter">i</span>
+    <span class="drop-letter">l</span>
+    <span class="drop-letter">i</span>
+    <span class="drop-letter">o</span>
+    <span class="drop-letter name-space">&nbsp;</span>
+    <span class="drop-letter">O</span>
+    <span class="drop-letter">k</span>
+    <span class="drop-letter">e</span>
+    <span class="drop-letter">a</span>
+    <span class="drop-letter">n</span>
+    <span class="drop-letter">o</span>
+    <span class="drop-letter">s</span>
+  </h1>
+</div>
 
 
 
@@ -961,44 +1056,7 @@
       <div class="tag">Personal Project Hub</div>
 
 
-<!-- =========================================================
-     AUSTAUSCHBARER BLOCK: HERO NAME AMBULANCE ANIMATION
-     Krankenwagen fährt rein, Tür öffnet sich, Name fällt raus
-     ========================================================= -->
-<div class="hero-name-scene">
-  <div class="ambulance-wrap" aria-hidden="true">
-    <div class="ambulance" id="ambulanceAnim">
-      <div class="ambulance-body">
-        <div class="ambulance-cabin"></div>
-        <div class="ambulance-box">
-          <div class="ambulance-cross">+</div>
-          <div class="ambulance-door"></div>
-          <div class="ambulance-stripe"></div>
-        </div>
-      </div>
 
-      <div class="wheel wheel-left"></div>
-      <div class="wheel wheel-right"></div>
-    </div>
-  </div>
-
-  <h1 class="falling-name" id="fallingName">
-    <span>P</span>
-    <span>f</span>
-    <span>i</span>
-    <span>l</span>
-    <span>i</span>
-    <span>o</span>
-    <span class="name-space">&nbsp;</span>
-    <span>O</span>
-    <span>k</span>
-    <span>e</span>
-    <span>a</span>
-    <span>n</span>
-    <span>o</span>
-    <span>s</span>
-  </h1>
-</div>
 
 
 
@@ -1241,24 +1299,26 @@
   if (ambulanceScene) {
     ambulanceScene.addEventListener("click", () => {
       const ambulance = document.getElementById("ambulanceAnim");
-      const name = document.getElementById("fallingName");
-      const letters = name.querySelectorAll("span");
+      const letters = document.querySelectorAll(".drop-letter");
+      const rearDoor = ambulance.querySelector(".ambulance-rear-door");
 
       ambulance.style.animation = "none";
-      void ambulance.offsetWidth;
-      ambulance.style.animation = "ambulanceDriveIn 2.2s ease-out forwards";
+      rearDoor.style.animation = "none";
 
       letters.forEach((letter) => {
         letter.style.animation = "none";
-        void letter.offsetWidth;
-        letter.style.animation = "";
       });
 
-      const door = ambulance.querySelector(".ambulance-door");
-      door.style.animation = "none";
-      void door.offsetWidth;
-      door.style.animation = "ambulanceDoorOpen 0.75s ease forwards";
-      door.style.animationDelay = "2.1s";
+      void ambulance.offsetWidth;
+
+      ambulance.style.animation =
+        "ambulanceDriveIn 2.1s ease-out forwards, ambulanceDriveOut 1.7s ease-in forwards 5.6s";
+
+      rearDoor.style.animation = "rearDoorOpen 0.65s ease forwards 2.0s";
+
+      letters.forEach((letter) => {
+        letter.style.animation = "";
+      });
     });
   }
 </script>
