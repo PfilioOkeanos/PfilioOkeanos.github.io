@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- =========================================================
-       AUSTAUSCHBARER BLOCK: SEO / SEITEN-META
-       Hier Titel und Beschreibung der 3D-Assets-Übersichtsseite ändern.
+       PRODUCT PAGE META START
        ========================================================= -->
-  <title>3D-Assets | Pfilio Okeanos</title>
-  <meta name="description" content="3D-Asset-Übersicht von Pfilio Okeanos: Low-Poly-Kleidung, Blender Asset Library Packs, FBX-Dateien, Kitbash-Assets und marktplatzfertige 3D-Modelle." />
+  <title>Modular Upper Clothing & Garment Hardware Pack | Pfilio Okeanos</title>
+  <meta name="description" content="Modular Upper Clothing & Garment Hardware Pack: 63 Items, 33 clothing pieces, 30 garment hardware parts, UV unwrapped polygon meshes for 3D projects, games and kitbashing." />
+  <!-- =========================================================
+       PRODUCT PAGE META END
+       ========================================================= -->
 
   <style>
     :root {
@@ -23,6 +25,7 @@
       --cyan: #4de8ff;
       --violet: #b36bff;
       --pink: #ff4fd8;
+      --gold: #ffb14a;
       --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
     }
 
@@ -69,7 +72,7 @@
     }
 
     h1 {
-      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      font-size: clamp(2.3rem, 6vw, 4.8rem);
       line-height: 1;
       margin: 16px 0;
     }
@@ -81,30 +84,17 @@
 
     h3 {
       font-size: 1.25rem;
+      margin: 0 0 10px;
     }
 
-    .intro {
-      max-width: 760px;
-      font-size: 1.16rem;
+    p {
       color: var(--muted);
     }
 
-    .section {
-      margin-top: 56px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: end;
-      margin-bottom: 18px;
-    }
-
-    .section-head p {
-      color: var(--subtle);
-      margin: 0;
-      max-width: 560px;
+    .intro {
+      max-width: 820px;
+      font-size: 1.16rem;
+      color: var(--muted);
     }
 
     .links,
@@ -134,18 +124,36 @@
     }
 
     .button.primary {
-      border-color: rgba(77, 232, 255, 0.5);
-      background: linear-gradient(135deg, rgba(88,166,255,0.28), rgba(179,107,255,0.24));
-      box-shadow: 0 0 24px rgba(88, 166, 255, 0.16);
+      border-color: rgba(255, 177, 74, 0.55);
+      background: linear-gradient(135deg, rgba(255,177,74,0.34), rgba(88,166,255,0.22));
+      box-shadow: 0 0 24px rgba(255, 177, 74, 0.14);
+    }
+
+    .section {
+      margin-top: 56px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      color: var(--subtle);
+      margin: 0;
+      max-width: 560px;
     }
 
     .hero-card {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
       gap: 24px;
-      border: 1px solid rgba(77, 232, 255, 0.35);
+      border: 1px solid rgba(255, 177, 74, 0.32);
       background:
-        linear-gradient(135deg, rgba(88, 166, 255, 0.16), rgba(255, 79, 216, 0.10)),
+        linear-gradient(135deg, rgba(255, 177, 74, 0.10), rgba(88, 166, 255, 0.12)),
         var(--card);
       border-radius: 22px;
       overflow: hidden;
@@ -153,12 +161,12 @@
     }
 
     .hero-media {
-      min-height: 380px;
+      min-height: 500px;
       background: #05070d;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-media img {
@@ -166,26 +174,20 @@
       height: 100%;
       object-fit: contain;
       display: block;
+      padding: 14px;
       background: #05070d;
-      padding: 10px;
     }
 
     .hero-copy {
-      padding: 30px 28px;
+      padding: 32px 30px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .hero-copy h2 {
-      font-size: clamp(1.7rem, 4vw, 2.8rem);
-      line-height: 1.04;
-      margin: 10px 0 12px;
-    }
-
-    .hero-copy p {
-      color: var(--muted);
-      margin: 0 0 14px;
+    .hero-copy h1 {
+      font-size: clamp(2rem, 4.8vw, 3.6rem);
+      margin: 10px 0 14px;
     }
 
     .badges {
@@ -205,14 +207,36 @@
       font-weight: bold;
     }
 
-    .feature-list {
-      padding-left: 18px;
-      margin: 10px 0 4px;
-      color: var(--muted);
+    .badge.gold {
+      border-color: rgba(255, 177, 74, 0.38);
+      background: rgba(255, 177, 74, 0.12);
+      color: #ffe2b5;
     }
 
-    .feature-list li {
-      margin: 6px 0;
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      background: rgba(13, 17, 23, 0.72);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--gold);
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--subtle);
+      font-size: 0.9rem;
     }
 
     .grid {
@@ -221,62 +245,59 @@
       gap: 18px;
     }
 
-    .asset-card {
+    .card {
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(22, 27, 34, 0.96), rgba(13, 17, 23, 0.96));
       border-radius: 16px;
-      overflow: hidden;
+      padding: 22px;
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
     }
 
-    a.asset-card {
-      display: block;
-      text-decoration: none;
-      transition: 160ms ease;
-    }
-
-    a.asset-card:hover {
-      border-color: var(--blue);
-      transform: translateY(-2px);
-      box-shadow: 0 18px 54px rgba(88, 166, 255, 0.12);
-    }
-
-    .asset-preview {
-      min-height: 190px;
-      background:
-        linear-gradient(135deg, rgba(88,166,255,0.18), rgba(255,255,255,0.03)),
-        #0d1117;
-      border-bottom: 1px solid var(--line);
-      overflow: hidden;
-    }
-
-    .asset-preview img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    .asset-content {
-      padding: 20px;
-    }
-
-    .asset-content h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-    }
-
-    .asset-content p {
+    .card p,
+    .card li {
       color: var(--muted);
-      margin-bottom: 0;
     }
 
-    .asset-status {
-      display: inline-block;
-      margin-top: 14px;
-      color: var(--cyan);
-      font-size: 0.9rem;
-      font-weight: bold;
+    .feature-list {
+      padding-left: 18px;
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .feature-list li {
+      margin: 7px 0;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(13, 17, 23, 0.76);
+    }
+
+    .info-table th,
+    .info-table td {
+      text-align: left;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .info-table th {
+      color: var(--gold);
+      width: 220px;
+      background: rgba(255, 177, 74, 0.06);
+    }
+
+    .info-table td {
+      color: var(--muted);
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+      border-bottom: 0;
     }
 
     .note {
@@ -293,7 +314,7 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 860px) {
       .section-head {
         display: block;
       }
@@ -303,8 +324,22 @@
       }
 
       .hero-media {
-        min-height: 260px;
-        grid-template-columns: 1fr;
+        min-height: 280px;
+      }
+
+      .info-table th,
+      .info-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .info-table th {
+        border-bottom: 0;
+        padding-bottom: 4px;
+      }
+
+      .info-table td {
+        padding-top: 4px;
       }
     }
   </style>
@@ -314,194 +349,298 @@
   <main class="page">
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: HEADER
+         HEADER / NAVIGATION START
          ========================================================= -->
     <header>
-      <div class="tag">3D-Asset-Bereich</div>
-      <h1>3D-Assets</h1>
+      <div class="tag">3D Asset Product Page</div>
+      <h1>Modular Upper Clothing & Garment Hardware Pack</h1>
+
       <p class="intro">
-        Low-Poly-Kleidung, Blender Asset Library Packs, FBX-Dateien, Kitbash-Assets und marktplatzfertige 3D-Modelle.
-        Diese Seite sammelt meine 3D-Asset-Veröffentlichungen und führt zu den einzelnen Vorschauseiten und Marktplatz-Links.
+        A modular upper-body clothing and garment hardware pack for 3D projects,
+        games, animation, kitbashing, visualization and custom outfit creation.
       </p>
 
       <div class="links" aria-label="Navigation">
-        <a href="index.html">← Zur Startseite</a>
-        <a href="https://www.cgtrader.com/designers/pfiliookeanos" target="_blank" rel="noopener noreferrer">CGTrader-Profil</a>
-        <a href="https://sketchfab.com/OohnnoO" target="_blank" rel="noopener noreferrer">Sketchfab</a>
-        <a href="https://pfiliookeanos.gumroad.com/" target="_blank" rel="noopener noreferrer">Gumroad</a>
+        <a href="index.html">← Back to Home</a>
+        <a href="3d-assets.html">← Back to 3D Assets</a>
+        <a href="https://www.cgtrader.com/designers/pfiliookeanos" target="_blank" rel="noopener noreferrer">CGTrader Profile</a>
       </div>
     </header>
+    <!-- =========================================================
+         HEADER / NAVIGATION END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: HERVORGEHOBENES / NEUESTES 3D-ASSET
-         Hier immer das neueste oder wichtigste 3D-Asset einsetzen.
+         PRODUCT HERO START
+         Kein Carousel. Nur ein starkes Übersichtbild.
+         PRODUCT HERO END
          ========================================================= -->
-    <section class="section" id="featured-3d-asset">
-      <div class="section-head">
-        <div>
-          <div class="tag">Aktuelles 3D-Asset</div>
-          <h2>Neueste Kleidungs-Veröffentlichung</h2>
-        </div>
-        <p>
-          Aktuelles 3D-Asset mit Vorschau, technischen Infos und direkter Weiterleitung zur Produktseite.
-        </p>
-      </div>
-
+    <section class="section" id="product-hero">
       <article class="hero-card">
         <div class="hero-media">
-          <img src="assets/img/men-pants-pro-set.png" alt="Men PantsPro Set – Werbevorschau mit 10 Low-Poly-Hosenmodellen" loading="lazy" />
-          <img src="assets/img/men-pant-pro-set-wire.png" alt="Men PantsPro Set – Vorschau und Wireframe-Übersicht" loading="lazy" />
+          <img
+            src="assets/img/modular-upper-clothing-hardware-pack.png"
+            alt="Modular Upper Clothing and Garment Hardware Pack overview thumbnail"
+            loading="lazy"
+          />
         </div>
 
         <div class="hero-copy">
           <div class="badges">
-            <span class="badge">Low Poly</span>
-            <span class="badge">Kleidung</span>
-            <span class="badge">FBX</span>
-            <span class="badge">Blender Asset Library</span>
+            <span class="badge gold">Released</span>
+            <span class="badge">3D Clothing</span>
+            <span class="badge">63 Items</span>
+            <span class="badge">Polygon Mesh</span>
+            <span class="badge">UV Unwrapped</span>
           </div>
 
-          <h2>Men PantsPro Set – 10 Pants</h2>
+          <h1>63-Item Clothing & Hardware Pack</h1>
 
           <p>
-            Ein sauberes Low-Poly-Kleidungsset mit 10 getrennten Hosenmodellen für Blender,
-            Game-Engines, Kitbash-Workflows und Character-Asset-Produktion.
+            This pack contains 33 upper-body clothing pieces and 30 garment hardware parts.
+            It is designed as a flexible base collection for custom materials, texturing,
+            modular outfit building and clothing-detail kitbashing.
           </p>
 
-          <ul class="feature-list">
-            <li>10 einzelne Hosenmodelle</li>
-            <li>Separate FBX-Dateien enthalten</li>
-            <li>Eine sauber vorbereitete Blender-Datei für Asset-Library-Workflows</li>
-            <li>Jedes Kleidungsstück liegt in einer eigenen Collection</li>
-            <li>Korrekte Skalierung, saubere UVs und leichte Low-Poly-Geometrie</li>
-            <li>Reduzierte Materialien mit minimalen Material-Slots für einfache Anpassung</li>
-          </ul>
-
           <div class="actions">
-            <a class="button primary" href="men-pantspro-set-10-pants.html">Vorschauseite öffnen</a>
-            <a class="button" href="https://www.cgtrader.com/3d-models/character/clothing/men-pantspro-set-a-10pants" target="_blank" rel="noopener noreferrer">Auf CGTrader ansehen</a>
+            <a
+              class="button primary"
+              href="https://www.cgtrader.com/3d-models/character/clothing/modular-upper-clothing-and-garment-hardware-pack-63-items"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Buy on CGTrader
+            </a>
+
+            <a class="button" href="#technical-info">
+              Technical Info
+            </a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>63</strong>
+              <span>Total Items</span>
+            </div>
+            <div class="stat">
+              <strong>33</strong>
+              <span>Clothing Pieces</span>
+            </div>
+            <div class="stat">
+              <strong>30</strong>
+              <span>Clothing Gadgets</span>
+            </div>
+            <div class="stat">
+              <strong>UV</strong>
+              <span>Unwrapped Meshes</span>
+            </div>
           </div>
 
           <p class="note">
-            Die Produktdateien liegen auf CGTrader. Die lokale Vorschauseite dient als saubere Portfolio- und Produktübersicht.
+            Product files are hosted on CGTrader. Materials and texture maps are not included.
           </p>
         </div>
       </article>
     </section>
+    <!-- =========================================================
+         PRODUCT HERO END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: ASSET-GRID / PRODUKT-LISTE
-         Neue 3D-Assets immer als neue <a class="asset-card"> Karte einfügen.
+         PRODUCT OVERVIEW START
          ========================================================= -->
-    <section class="section" id="asset-library">
+    <section class="section" id="overview">
       <div class="section-head">
         <div>
-          <div class="tag">Asset-Bibliothek</div>
-          <h2>Alle 3D-Assets</h2>
+          <div class="tag">Overview</div>
+          <h2>What is included?</h2>
         </div>
         <p>
-          Übersicht aller veröffentlichten und geplanten 3D-Assets. Jede Karte führt später auf eine eigene Vorschauseite.
+          The pack combines base clothing meshes with reusable garment detail parts.
         </p>
       </div>
 
       <div class="grid">
-
-        <!-- ASSET CARD START: Men PantsPro Set -->
-        <a class="asset-card" href="men-pantspro-set-10-pants.html">
-          <div class="asset-preview">
-            <img src="assets/img/men-pants-pro-set.png" alt="Men PantsPro Set – Low-Poly-Kleidungs-Thumbnail" loading="lazy" />
-          </div>
-          <div class="asset-content">
-            <div class="badges">
-              <span class="badge">Veröffentlicht</span>
-              <span class="badge">Kleidung</span>
-              <span class="badge">Low Poly</span>
-            </div>
-
-            <h3>Men PantsPro Set – 10 Pants</h3>
-            <p>
-              10 organisierte Low-Poly-Hosenmodelle mit separaten FBX-Dateien und einer sauberen Blender-Asset-Library-Datei.
-            </p>
-
-            <span class="asset-status">Vorschau öffnen →</span>
-          </div>
-        </a>
-        <!-- ASSET CARD END: Men PantsPro Set -->
-
-        <!-- ASSET CARD START: Placeholder / Next Asset -->
-        <article class="asset-card">
-          <div class="asset-preview"></div>
-          <div class="asset-content">
-            <div class="badges">
-              <span class="badge">Nächstes Asset</span>
-              <span class="badge">Geplant</span>
-            </div>
-
-            <h3>Nächstes 3D-Asset</h3>
-            <p>
-              Platzhalter für das nächste 3D-Asset. Diesen Block später kopieren, umbenennen und mit echtem Bild und Link ersetzen.
-            </p>
-
-            <span class="asset-status">In Planung</span>
-          </div>
+        <article class="card">
+          <h3>33 Clothing Pieces</h3>
+          <p>
+            A modular collection of upper-body garments for character clothing, fashion visualization,
+            game assets, kitbashing and design work.
+          </p>
+          <ul class="feature-list">
+            <li>Jackets</li>
+            <li>Hoodies</li>
+            <li>Shirts</li>
+            <li>Vests</li>
+            <li>Tops</li>
+            <li>Sportswear-style pieces</li>
+          </ul>
         </article>
-        <!-- ASSET CARD END: Placeholder / Next Asset -->
 
+        <article class="card">
+          <h3>30 Clothing Gadgets</h3>
+          <p>
+            Detail parts and garment hardware that can be reused to enhance other clothing models
+            or create custom outfit variations.
+          </p>
+          <ul class="feature-list">
+            <li>Zipper pulls</li>
+            <li>Buttons</li>
+            <li>Buckles</li>
+            <li>Straps</li>
+            <li>Garment detail parts</li>
+            <li>Hardware-style accessories</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Modular Workflow</h3>
+          <p>
+            Many parts can be combined, adjusted or reused with other items from the pack.
+            The set is intended as a flexible base library rather than a fixed final outfit.
+          </p>
+          <ul class="feature-list">
+            <li>Useful for kitbashing</li>
+            <li>Ready for custom materials</li>
+            <li>Good base for outfit variations</li>
+            <li>Can extend your clothing library</li>
+          </ul>
+        </article>
       </div>
     </section>
+    <!-- =========================================================
+         PRODUCT OVERVIEW END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: PRODUKTIONS-FOKUS
-         Kann später erweitert oder gelöscht werden.
+         TECHNICAL INFO START
          ========================================================= -->
-    <section class="section" id="technical-focus">
+    <section class="section" id="technical-info">
       <div class="section-head">
         <div>
-          <div class="tag">Asset-Fokus</div>
-          <h2>Produktionsnotizen</h2>
+          <div class="tag">Technical Info</div>
+          <h2>Asset Details</h2>
         </div>
         <p>
-          Kurz erklärt, worauf die Assets ausgelegt sind.
+          Important information for buyers before downloading the product.
         </p>
       </div>
 
-      <div class="grid">
-        <article class="asset-card">
-          <div class="asset-content">
-            <h3>Saubere Struktur</h3>
-            <p>
-              Die Assets sind für praktische Nutzung organisiert: getrennte Objekte, klare Collections und einfache Exportpfade.
-            </p>
-          </div>
-        </article>
-
-        <article class="asset-card">
-          <div class="asset-content">
-            <h3>Game-freundliche Basis</h3>
-            <p>
-              Low-Poly-Meshes, saubere Skalierung, leichte Geometrie und wiederverwendbare FBX-Dateien für Game-Engine-Workflows.
-            </p>
-          </div>
-        </article>
-
-        <article class="asset-card">
-          <div class="asset-content">
-            <h3>Einfach anpassbar</h3>
-            <p>
-              Saubere UVs und minimale Material-Slots erleichtern Retexturing, Materialwechsel und Kitbash-Workflows.
-            </p>
-          </div>
-        </article>
-      </div>
+      <table class="info-table">
+        <tr>
+          <th>Product Name</th>
+          <td>Modular Upper Clothing & Garment Hardware Pack – 63 Items</td>
+        </tr>
+        <tr>
+          <th>Total Items</th>
+          <td>63</td>
+        </tr>
+        <tr>
+          <th>Clothing Pieces</th>
+          <td>33</td>
+        </tr>
+        <tr>
+          <th>Clothing Gadgets</th>
+          <td>30</td>
+        </tr>
+        <tr>
+          <th>Geometry</th>
+          <td>Polygon Mesh</td>
+        </tr>
+        <tr>
+          <th>UVs</th>
+          <td>UV unwrapped meshes</td>
+        </tr>
+        <tr>
+          <th>Total Vertices</th>
+          <td>635,824</td>
+        </tr>
+        <tr>
+          <th>Total Polygons</th>
+          <td>638,955</td>
+        </tr>
+        <tr>
+          <th>Materials / Textures</th>
+          <td>Finished materials and texture maps are not included. The models are prepared as clean base meshes for custom materials and texturing.</td>
+        </tr>
+        <tr>
+          <th>Use Cases</th>
+          <td>Games, animation, 3D design, fashion visualization, kitbashing, character clothing, concept work and portfolio projects.</td>
+        </tr>
+      </table>
     </section>
+    <!-- =========================================================
+         TECHNICAL INFO END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: FOOTER
+         DESCRIPTION START
+         ========================================================= -->
+    <section class="section" id="description">
+      <div class="section-head">
+        <div>
+          <div class="tag">Product Description</div>
+          <h2>Description</h2>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>
+          The Modular Upper Clothing & Garment Hardware Pack includes a versatile collection of upper-body clothing pieces
+          and garment hardware for 3D projects, games, animation, visualization, kitbashing and design work.
+        </p>
+
+        <p>
+          All clothing pieces are polygon mesh models with clean topology and UV unwrapped layouts, making them ready for
+          custom texturing, material creation, modification and further production use.
+        </p>
+
+        <p>
+          The models do not include finished materials or texture maps. They are provided as clean base meshes, so you can
+          apply your own materials, colors, fabric textures, patterns, logos, decals or custom shader setups.
+        </p>
+
+        <p>
+          Many parts are designed to work well as modular clothing elements. Individual clothing pieces and garment details
+          can be combined, adjusted or reused with other items from the pack, allowing you to create custom outfit variations
+          and extend your own clothing library.
+        </p>
+
+        <div class="actions">
+          <a
+            class="button primary"
+            href="https://www.cgtrader.com/3d-models/character/clothing/modular-upper-clothing-and-garment-hardware-pack-63-items"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Product on CGTrader
+          </a>
+
+          <a class="button" href="3d-assets.html">
+            Back to 3D Assets
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- =========================================================
+         DESCRIPTION END
+         ========================================================= -->
+
+
+    <!-- =========================================================
+         FOOTER START
          ========================================================= -->
     <footer>
-      © 2026 Pfilio Okeanos · 3D-Assets · Blender · FBX · Game Assets
+      © 2026 Pfilio Okeanos · Modular Upper Clothing & Garment Hardware Pack · 3D Assets
     </footer>
+    <!-- =========================================================
+         FOOTER END
+         ========================================================= -->
+
   </main>
 </body>
 </html>
-
