@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- =========================================================
-       AUSTAUSCHBARER BLOCK: SEO / PAGE META
-       AUSTAUSCHBARER BLOCK: SEO / SEITEN-META
-       Hier Titel und Beschreibung der 3D-Assets-Übersichtsseite ändern.
+       PRODUCT PAGE META START
        ========================================================= -->
   <title>Men PantsPro Set – 10 Pants | Pfilio Okeanos</title>
   <meta name="description" content="Men PantsPro Set – 10 low-poly pants models for Blender, FBX workflows, game engines, kitbash use and clean 3D asset production." />
-  <title>3D-Assets | Pfilio Okeanos</title>
-  <meta name="description" content="3D-Asset-Übersicht von Pfilio Okeanos: Low-Poly-Kleidung, Blender Asset Library Packs, FBX-Dateien, Kitbash-Assets und marktplatzfertige 3D-Modelle." />
+  <!-- =========================================================
+       PRODUCT PAGE META END
+       ========================================================= -->
 
   <style>
     :root {
@@ -26,7 +25,6 @@
       --cyan: #4de8ff;
       --violet: #b36bff;
       --pink: #ff4fd8;
-      --green: #3fb950;
       --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
     }
 
@@ -74,7 +72,6 @@
 
     h1 {
       font-size: clamp(2.4rem, 6vw, 4.8rem);
-      font-size: clamp(2.4rem, 6vw, 4.6rem);
       line-height: 1;
       margin: 16px 0;
     }
@@ -86,11 +83,11 @@
 
     h3 {
       font-size: 1.25rem;
+      margin: 0 0 8px;
     }
 
     .intro {
       max-width: 780px;
-      max-width: 760px;
       font-size: 1.16rem;
       color: var(--muted);
     }
@@ -159,8 +156,8 @@
     }
 
     .hero-media {
-      min-height: 430px;
-      min-height: 380px;
+      min-height: 360px;
+      max-height: 440px;
       background: #05070d;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -171,11 +168,11 @@
     .hero-media img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      max-height: 440px;
       object-fit: contain;
       display: block;
       background: #05070d;
-      padding: 10px;
+      padding: 12px;
     }
 
     .hero-copy {
@@ -224,15 +221,13 @@
     }
 
     .gallery {
-    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 18px;
     }
 
     .gallery-item,
     .info-card {
-    .asset-card {
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(22, 27, 34, 0.96), rgba(13, 17, 23, 0.96));
       border-radius: 16px;
@@ -242,12 +237,12 @@
 
     .gallery-item img {
       width: 100%;
-      min-height: 260px;
-      max-height: 420px;
-      object-fit: cover;
-    a.asset-card {
+      height: 260px;
+      max-height: 260px;
+      object-fit: contain;
       display: block;
       background: #05070d;
+      padding: 10px;
     }
 
     .gallery-caption,
@@ -255,48 +250,26 @@
       padding: 18px 20px;
     }
 
-    .gallery-caption h3,
-    .info-content h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      text-decoration: none;
-      transition: 160ms ease;
-    }
-
     .gallery-caption p,
-    .info-content p {
+    .info-content p,
+    .info-content li {
       color: var(--muted);
       margin: 0;
-    a.asset-card:hover {
-      border-color: var(--blue);
-      transform: translateY(-2px);
-      box-shadow: 0 18px 54px rgba(88, 166, 255, 0.12);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
-    .asset-preview {
-      min-height: 190px;
-      background:
-        linear-gradient(135deg, rgba(88,166,255,0.18), rgba(255,255,255,0.03)),
-        #0d1117;
-      border-bottom: 1px solid var(--line);
-      overflow: hidden;
     }
 
     .spec-table {
-    .asset-preview img {
       width: 100%;
       border-collapse: collapse;
       overflow: hidden;
       border-radius: 16px;
       border: 1px solid var(--line);
       background: rgba(22, 27, 34, 0.72);
-      height: 100%;
-      display: block;
-      object-fit: cover;
     }
 
     .spec-table th,
@@ -305,34 +278,21 @@
       padding: 14px 16px;
       border-bottom: 1px solid var(--line);
       vertical-align: top;
-    .asset-content {
-      padding: 20px;
     }
 
     .spec-table th {
       width: 34%;
       color: var(--cyan);
       background: rgba(88, 166, 255, 0.06);
-    .asset-content h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
     }
 
     .spec-table td {
-    .asset-content p {
       color: var(--muted);
-      margin-bottom: 0;
     }
 
     .spec-table tr:last-child th,
     .spec-table tr:last-child td {
       border-bottom: none;
-    .asset-status {
-      display: inline-block;
-      margin-top: 14px;
-      color: var(--cyan);
-      font-size: 0.9rem;
-      font-weight: bold;
     }
 
     .note {
@@ -359,7 +319,13 @@
       }
 
       .hero-media {
-        min-height: 280px;
+        min-height: 260px;
+        max-height: none;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media img {
+        max-height: 320px;
       }
 
       .spec-table th,
@@ -375,8 +341,6 @@
 
       .spec-table td {
         padding-top: 4px;
-        min-height: 260px;
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -386,19 +350,15 @@
   <main class="page">
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: HEADER / NAVIGATION
-         AUSTAUSCHBARER BLOCK: HEADER
+         HEADER / NAVIGATION START
          ========================================================= -->
     <header>
       <div class="tag">3D Asset Preview</div>
       <h1>Men PantsPro Set – 10 Pants</h1>
-      <div class="tag">3D-Asset-Bereich</div>
-      <h1>3D-Assets</h1>
+
       <p class="intro">
         A clean low-poly clothing asset pack with 10 organized pants models.
         Built for Blender, FBX workflows, game engines, kitbash use and character asset production.
-        Low-Poly-Kleidung, Blender Asset Library Packs, FBX-Dateien, Kitbash-Assets und marktplatzfertige 3D-Modelle.
-        Diese Seite sammelt meine 3D-Asset-Veröffentlichungen und führt zu den einzelnen Vorschauseiten und Marktplatz-Links.
       </p>
 
       <div class="links" aria-label="Navigation">
@@ -406,36 +366,33 @@
         <a href="3d-assets.html">← 3D Assets</a>
         <a href="https://www.cgtrader.com/3d-models/character/clothing/men-pantspro-set-a-10pants" target="_blank" rel="noopener noreferrer">CGTrader Product</a>
         <a href="https://www.cgtrader.com/designers/pfiliookeanos" target="_blank" rel="noopener noreferrer">CGTrader Profile</a>
-        <a href="index.html">← Zur Startseite</a>
-        <a href="https://www.cgtrader.com/designers/pfiliookeanos" target="_blank" rel="noopener noreferrer">CGTrader-Profil</a>
-        <a href="https://sketchfab.com/OohnnoO" target="_blank" rel="noopener noreferrer">Sketchfab</a>
-        <a href="https://pfiliookeanos.gumroad.com/" target="_blank" rel="noopener noreferrer">Gumroad</a>
       </div>
     </header>
+    <!-- =========================================================
+         HEADER / NAVIGATION END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: HERO PRODUCT PREVIEW
+         HERO PRODUCT PREVIEW START
          Hauptbild und Haupttext des Produkts.
-         AUSTAUSCHBARER BLOCK: HERVORGEHOBENES / NEUESTES 3D-ASSET
-         Hier immer das neueste oder wichtigste 3D-Asset einsetzen.
+         HERO PRODUCT PREVIEW END
          ========================================================= -->
     <section class="section" id="product-hero">
-    <section class="section" id="featured-3d-asset">
       <div class="section-head">
         <div>
-          <div class="tag">Aktuelles 3D-Asset</div>
-          <h2>Neueste Kleidungs-Veröffentlichung</h2>
+          <div class="tag">Product Preview</div>
+          <h2>Low-Poly Pants Asset Pack</h2>
         </div>
         <p>
-          Aktuelles 3D-Asset mit Vorschau, technischen Infos und direkter Weiterleitung zur Produktseite.
+          Main overview with promotional and wireframe-style preview.
         </p>
       </div>
 
       <article class="hero-card">
         <div class="hero-media">
-          <img src="assets/img/men-pant-pro-set-wire.png" alt="Men PantsPro Set - 10 low-poly pants models preview" loading="lazy" />
-          <img src="assets/img/men-pants-pro-set.png" alt="Men PantsPro Set – Werbevorschau mit 10 Low-Poly-Hosenmodellen" loading="lazy" />
-          <img src="assets/img/men-pant-pro-set-wire.png" alt="Men PantsPro Set – Vorschau und Wireframe-Übersicht" loading="lazy" />
+          <img src="assets/img/men-pants-pro-set.png" alt="Men PantsPro Set promotional preview" loading="lazy" />
+          <img src="assets/img/men-pant-pro-set-wire.png" alt="Men PantsPro Set wireframe overview" loading="lazy" />
         </div>
 
         <div class="hero-copy">
@@ -443,19 +400,15 @@
             <span class="badge">Released</span>
             <span class="badge">Low Poly</span>
             <span class="badge">Clothing</span>
-            <span class="badge">Kleidung</span>
             <span class="badge">FBX</span>
             <span class="badge">Blender Asset Library</span>
           </div>
 
           <h2>10 Low-Poly Pants Models</h2>
-          <h2>Men PantsPro Set – 10 Pants</h2>
 
           <p>
             This pack contains 10 separated pants models prepared as a clean clothing base for
             Blender, Unreal Engine, Unity, kitbash workflows and general 3D production.
-            Ein sauberes Low-Poly-Kleidungsset mit 10 getrennten Hosenmodellen für Blender,
-            Game-Engines, Kitbash-Workflows und Character-Asset-Produktion.
           </p>
 
           <ul class="feature-list">
@@ -465,47 +418,37 @@
             <li>Each asset placed in its own collection</li>
             <li>Correct scale, clean UVs and lightweight low-poly geometry</li>
             <li>Reduced materials with minimal material slots for easy reassignment</li>
-            <li>10 einzelne Hosenmodelle</li>
-            <li>Separate FBX-Dateien enthalten</li>
-            <li>Eine sauber vorbereitete Blender-Datei für Asset-Library-Workflows</li>
-            <li>Jedes Kleidungsstück liegt in einer eigenen Collection</li>
-            <li>Korrekte Skalierung, saubere UVs und leichte Low-Poly-Geometrie</li>
-            <li>Reduzierte Materialien mit minimalen Material-Slots für einfache Anpassung</li>
           </ul>
 
           <div class="actions">
             <a class="button primary" href="https://www.cgtrader.com/3d-models/character/clothing/men-pantspro-set-a-10pants" target="_blank" rel="noopener noreferrer">View on CGTrader</a>
             <a class="button" href="#technical-details">Technical Details</a>
-            <a class="button primary" href="men-pantspro-set-10-pants.html">Vorschauseite öffnen</a>
-            <a class="button" href="https://www.cgtrader.com/3d-models/character/clothing/men-pantspro-set-a-10pants" target="_blank" rel="noopener noreferrer">Auf CGTrader ansehen</a>
           </div>
 
           <p class="note">
             Product files are hosted on CGTrader. This page is the clean portfolio and preview page.
-            Die Produktdateien liegen auf CGTrader. Die lokale Vorschauseite dient als saubere Portfolio- und Produktübersicht.
           </p>
         </div>
       </article>
     </section>
+    <!-- =========================================================
+         HERO PRODUCT PREVIEW END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: IMAGE GALLERY
+         IMAGE GALLERY START
          Hier weitere Preview-, Wireframe- oder Renderbilder einfügen.
-         AUSTAUSCHBARER BLOCK: ASSET-GRID / PRODUKT-LISTE
-         Neue 3D-Assets immer als neue <a class="asset-card"> Karte einfügen.
+         IMAGE GALLERY END
          ========================================================= -->
     <section class="section" id="gallery">
-    <section class="section" id="asset-library">
       <div class="section-head">
         <div>
           <div class="tag">Preview Gallery</div>
           <h2>Asset Preview</h2>
-          <div class="tag">Asset-Bibliothek</div>
-          <h2>Alle 3D-Assets</h2>
         </div>
         <p>
           Overview and wireframe-style preview for checking shape, topology impression and pack content.
-          Übersicht aller veröffentlichten und geplanten 3D-Assets. Jede Karte führt später auf eine eigene Vorschauseite.
         </p>
       </div>
 
@@ -515,76 +458,44 @@
           <div class="gallery-caption">
             <h3>Pack Overview</h3>
             <p>Full visual overview of the 10 pants models included in the set.</p>
-      <div class="grid">
-
-        <!-- ASSET CARD START: Men PantsPro Set -->
-        <a class="asset-card" href="men-pantspro-set-10-pants.html">
-          <div class="asset-preview">
-            <img src="assets/img/men-pants-pro-set.png" alt="Men PantsPro Set – Low-Poly-Kleidungs-Thumbnail" loading="lazy" />
           </div>
         </article>
-          <div class="asset-content">
-            <div class="badges">
-              <span class="badge">Veröffentlicht</span>
-              <span class="badge">Kleidung</span>
-              <span class="badge">Low Poly</span>
-            </div>
-
-            <h3>Men PantsPro Set – 10 Pants</h3>
-            <p>
-              10 organisierte Low-Poly-Hosenmodelle mit separaten FBX-Dateien und einer sauberen Blender-Asset-Library-Datei.
-            </p>
 
         <article class="gallery-item">
-          <img src="assets/img/men-pants-pro-set.png" alt="Men PantsPro Set wireframe and topology preview" loading="lazy" />
+          <img src="assets/img/men-pants-pro-set.png" alt="Men PantsPro Set promotional render preview" loading="lazy" />
+          <div class="gallery-caption">
+            <h3>Promotional Preview</h3>
+            <p>Clean promotional image for marketplace and portfolio presentation.</p>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <img src="assets/img/men-pant-pro-set-wire.png" alt="Men PantsPro Set wireframe and topology preview" loading="lazy" />
           <div class="gallery-caption">
             <h3>Wireframe Preview</h3>
             <p>Topology-style preview for checking the low-poly structure and model readability.</p>
-            <span class="asset-status">Vorschau öffnen →</span>
-          </div>
-        </a>
-        <!-- ASSET CARD END: Men PantsPro Set -->
-
-        <!-- ASSET CARD START: Placeholder / Next Asset -->
-        <article class="asset-card">
-          <div class="asset-preview"></div>
-          <div class="asset-content">
-            <div class="badges">
-              <span class="badge">Nächstes Asset</span>
-              <span class="badge">Geplant</span>
-            </div>
-
-            <h3>Nächstes 3D-Asset</h3>
-            <p>
-              Platzhalter für das nächste 3D-Asset. Diesen Block später kopieren, umbenennen und mit echtem Bild und Link ersetzen.
-            </p>
-
-            <span class="asset-status">In Planung</span>
           </div>
         </article>
-        <!-- ASSET CARD END: Placeholder / Next Asset -->
-
       </div>
     </section>
+    <!-- =========================================================
+         IMAGE GALLERY END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: PRODUCT DESCRIPTION
+         PRODUCT DESCRIPTION START
          Marketplace-/Portfolio-Beschreibung.
-         AUSTAUSCHBARER BLOCK: PRODUKTIONS-FOKUS
-         Kann später erweitert oder gelöscht werden.
+         PRODUCT DESCRIPTION END
          ========================================================= -->
     <section class="section" id="description">
-    <section class="section" id="technical-focus">
       <div class="section-head">
         <div>
           <div class="tag">Product Description</div>
           <h2>What is included?</h2>
-          <div class="tag">Asset-Fokus</div>
-          <h2>Produktionsnotizen</h2>
         </div>
         <p>
           Clean structure, separated files and simple reuse were the main focus of this pack.
-          Kurz erklärt, worauf die Assets ausgelegt sind.
         </p>
       </div>
 
@@ -592,13 +503,9 @@
         <article class="info-card">
           <div class="info-content">
             <h3>Organized Asset Library</h3>
-        <article class="asset-card">
-          <div class="asset-content">
-            <h3>Saubere Struktur</h3>
             <p>
               The Blender file is prepared as a clean asset-library source. Each clothing item is placed
               in its own collection, so the pack stays easy to browse, append, modify or export.
-              Die Assets sind für praktische Nutzung organisiert: getrennte Objekte, klare Collections und einfache Exportpfade.
             </p>
           </div>
         </article>
@@ -606,13 +513,9 @@
         <article class="info-card">
           <div class="info-content">
             <h3>Separate FBX Files</h3>
-        <article class="asset-card">
-          <div class="asset-content">
-            <h3>Game-freundliche Basis</h3>
             <p>
               Every pants model is also included as its own FBX file. This makes the pack useful for
               Blender, Unreal Engine, Unity and other DCC or game-engine workflows.
-              Low-Poly-Meshes, saubere Skalierung, leichte Geometrie und wiederverwendbare FBX-Dateien für Game-Engine-Workflows.
             </p>
           </div>
         </article>
@@ -620,22 +523,23 @@
         <article class="info-card">
           <div class="info-content">
             <h3>Clean Base for Customization</h3>
-        <article class="asset-card">
-          <div class="asset-content">
-            <h3>Einfach anpassbar</h3>
             <p>
               Materials were reduced and cleaned while minimal material slots remain available for
               quick reassignment, retexturing, material swaps or pipeline setup.
-              Saubere UVs und minimale Material-Slots erleichtern Retexturing, Materialwechsel und Kitbash-Workflows.
             </p>
           </div>
         </article>
       </div>
     </section>
+    <!-- =========================================================
+         PRODUCT DESCRIPTION END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: TECHNICAL DETAILS
+         TECHNICAL DETAILS START
          Diese Tabelle später mit echten Polygon-/Vertex-Zahlen ergänzen.
+         TECHNICAL DETAILS END
          ========================================================= -->
     <section class="section" id="technical-details">
       <div class="section-head">
@@ -699,10 +603,15 @@
         </tr>
       </table>
     </section>
+    <!-- =========================================================
+         TECHNICAL DETAILS END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: IMPORTANT NOTE
+         IMPORTANT NOTE START
          Klarer Hinweis, damit Käufer keine falsche Erwartung haben.
+         IMPORTANT NOTE END
          ========================================================= -->
     <section class="section" id="usage-note">
       <div class="section-head">
@@ -727,14 +636,21 @@
         </div>
       </article>
     </section>
+    <!-- =========================================================
+         IMPORTANT NOTE END
+         ========================================================= -->
+
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: FOOTER
+         FOOTER START
          ========================================================= -->
     <footer>
       © 2026 Pfilio Okeanos · Men PantsPro Set · 3D Assets · Blender · FBX
-      © 2026 Pfilio Okeanos · 3D-Assets · Blender · FBX · Game Assets
     </footer>
+    <!-- =========================================================
+         FOOTER END
+         ========================================================= -->
+
   </main>
 </body>
 </html>
