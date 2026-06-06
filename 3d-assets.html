@@ -170,9 +170,10 @@
     .hero-media img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
       background: #05070d;
+      padding: 12px;
     }
 
     .hero-copy {
@@ -265,7 +266,9 @@
       width: 100%;
       height: 100%;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
+      padding: 10px;
+      background: #05070d;
     }
 
     .asset-content {
@@ -346,7 +349,6 @@
 
     <!-- =========================================================
          FEATURED ASSET SECTION START
-         Hier wird immer das NEUESTE oder WICHTIGSTE 3D Asset groß angezeigt.
 
          WENN EIN NEUES TOP-ASSET KOMMT:
          1. Nur den Bereich zwischen
@@ -371,20 +373,20 @@
 
       <!-- =======================================================
            FEATURED ASSET CONTENT START
-           AKTUELL EINGESETZT:
+           AKTUELL:
            Modular Upper Clothing & Garment Hardware Pack – 63 Items
 
            ZUKÜNFTIG:
            Diesen kompletten <article class="hero-card">...</article>
-           Block ersetzen, wenn ein neues Asset oben featured werden soll.
+           Block ersetzen.
            ======================================================= -->
       <article class="hero-card">
         <div class="hero-media hero-media-single">
-       <img
-        src="assets/img/modular-upper-clothing-hardware-pack.png"
-         alt="3D Assets preview with modular upper clothing and garment hardware pack"
-          loading="lazy"
-         />
+          <img
+            src="assets/img/modular-upper-clothing-hardware-pack.png"
+            alt="3D Assets preview with modular upper clothing and garment hardware pack"
+            loading="lazy"
+          />
         </div>
 
         <div class="hero-copy">
@@ -450,7 +452,6 @@
 
     <!-- =========================================================
          ASSET LIBRARY SECTION START
-         Hier stehen alle einzelnen 3D Asset Karten.
 
          WENN EIN NEUES ASSET DAZUKOMMT:
          1. In <div class="grid"> gehen.
@@ -476,9 +477,6 @@
         <!-- =====================================================
              ASSET CARD START:
              Modular Upper Clothing & Garment Hardware Pack – 63 Items
-
-             Diese Karte ist ein VERÖFFENTLICHTES Produkt.
-             Für neue veröffentlichte Produkte diesen Block kopieren.
              ===================================================== -->
         <a
           class="asset-card"
@@ -488,7 +486,7 @@
         >
           <div class="asset-preview">
             <img
-              src="assets/img/modular-upper-clothing-hardware-pack.jpg"
+              src="assets/img/modular-upper-clothing-hardware-pack.png"
               alt="Modular Upper Clothing and Garment Hardware Pack thumbnail"
               loading="lazy"
             />
@@ -521,8 +519,6 @@
         <!-- =====================================================
              ASSET CARD START:
              Men PantsPro Set – 10 Pants
-
-             Altes Produkt bleibt als zweite Karte in der Asset Library.
              ===================================================== -->
         <a class="asset-card" href="men-pantspro-set-10-pants.html">
           <div class="asset-preview">
