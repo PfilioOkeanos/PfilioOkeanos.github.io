@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- =========================================================
-       AUSTAUSCHBARER BLOCK: SEO / PAGE META
+       PAGE META START
+       Hier Titel/Beschreibung der gesamten 3D-Assets-Unterseite ändern.
+       PAGE META END
        ========================================================= -->
   <title>3D Assets | Pfilio Okeanos</title>
   <meta name="description" content="3D Asset Übersicht von Pfilio Okeanos: Low-poly Kleidung, Blender Asset Library Packs, FBX Dateien, Kitbash Assets und marketplace-ready 3D Modelle." />
@@ -22,6 +24,7 @@
       --cyan: #4de8ff;
       --violet: #b36bff;
       --pink: #ff4fd8;
+      --gold: #ffb14a;
       --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
     }
 
@@ -160,6 +163,10 @@
       overflow: hidden;
     }
 
+    .hero-media.hero-media-single {
+      grid-template-columns: 1fr;
+    }
+
     .hero-media img {
       width: 100%;
       height: 100%;
@@ -201,6 +208,12 @@
       border-radius: 999px;
       font-size: 0.78rem;
       font-weight: bold;
+    }
+
+    .badge.gold {
+      border-color: rgba(255, 177, 74, 0.38);
+      background: rgba(255, 177, 74, 0.12);
+      color: #ffe2b5;
     }
 
     .feature-list {
@@ -311,7 +324,9 @@
   <main class="page">
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: HEADER
+         HEADER START
+         Dies ist der Seitenkopf der 3D-Assets-Unterseite.
+         HEADER END
          ========================================================= -->
     <header>
       <div class="tag">3D Asset Section</div>
@@ -330,8 +345,18 @@
     </header>
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: FEATURED / NEUESTES 3D ASSET
-         Hier immer das neueste oder wichtigste 3D Asset einsetzen.
+         FEATURED ASSET SECTION START
+         Hier wird immer das NEUESTE oder WICHTIGSTE 3D Asset groß angezeigt.
+
+         WENN EIN NEUES TOP-ASSET KOMMT:
+         1. Nur den Bereich zwischen
+            FEATURED ASSET CONTENT START
+            und
+            FEATURED ASSET CONTENT END
+            ersetzen.
+         2. Der Rest der Section bleibt gleich.
+
+         FEATURED ASSET SECTION END
          ========================================================= -->
     <section class="section" id="featured-3d-asset">
       <div class="section-head">
@@ -340,55 +365,100 @@
           <h2>Newest Clothing Release</h2>
         </div>
         <p>
-          Aktuelles 3D-Asset mit Preview, technischen Infos und direkter Weiterleitung zur Produktseite.
+          Current 3D asset with preview, technical information and direct product link.
         </p>
       </div>
 
+      <!-- =======================================================
+           FEATURED ASSET CONTENT START
+           AKTUELL EINGESETZT:
+           Modular Upper Clothing & Garment Hardware Pack – 63 Items
+
+           ZUKÜNFTIG:
+           Diesen kompletten <article class="hero-card">...</article>
+           Block ersetzen, wenn ein neues Asset oben featured werden soll.
+           ======================================================= -->
       <article class="hero-card">
-        <div class="hero-media">
-          <img src="assets/img/men-pants-pro-set.png" alt="Men PantsPro Set - 10 pants models preview" loading="lazy" />
-          <img src="assets/img/men-pant-pro-set-wire.png" alt="Men PantsPro Set wireframe preview" loading="lazy" />
+        <div class="hero-media hero-media-single">
+          <img
+            src="assets/img/modular-upper-clothing-hardware-pack.jpg"
+            alt="Modular Upper Clothing and Garment Hardware Pack overview thumbnail"
+            loading="lazy"
+          />
         </div>
 
         <div class="hero-copy">
           <div class="badges">
-            <span class="badge">Low Poly</span>
-            <span class="badge">Clothing</span>
-            <span class="badge">FBX</span>
-            <span class="badge">Blender Asset Library</span>
+            <span class="badge gold">Released</span>
+            <span class="badge">3D Clothing</span>
+            <span class="badge">63 Items</span>
+            <span class="badge">Polygon Mesh</span>
+            <span class="badge">UV Unwrapped</span>
           </div>
 
-          <h2>Men PantsPro Set – 10 Pants</h2>
+          <h2>Modular Upper Clothing & Garment Hardware Pack – 63 Items</h2>
 
           <p>
-            A clean low-poly clothing pack with 10 organized pants models for Blender,
-            game engines, kitbash workflows and character asset production.
+            A modular upper-body clothing and garment hardware pack with 63 total items:
+            33 clothing pieces and 30 clothing gadgets. Includes jackets, hoodies, shirts,
+            vests, tops, zipper pulls, buttons, buckles, straps and detail parts.
           </p>
 
           <ul class="feature-list">
-            <li>10 separate pants models</li>
-            <li>Separate FBX files included</li>
-            <li>One clean Blender file prepared for Asset Library workflows</li>
-            <li>Each clothing piece organized in its own collection</li>
-            <li>Correct scale, clean UVs and lightweight geometry</li>
-            <li>Reduced materials with minimal material slots for easy customization</li>
+            <li>63 total items</li>
+            <li>33 upper-body clothing pieces</li>
+            <li>30 clothing gadgets and hardware parts</li>
+            <li>UV unwrapped polygon meshes</li>
+            <li>Clean topology and organized asset structure</li>
+            <li>Ready for custom materials, texturing, kitbashing and outfit variations</li>
+            <li>Total vertices: 635,824</li>
+            <li>Total polygons: 638,955</li>
+            <li>Materials and texture maps are not included</li>
           </ul>
 
           <div class="actions">
-            <a class="button primary" href="men-pantspro-set-10-pants.html">Open Preview Page</a>
-            <a class="button" href="https://www.cgtrader.com/3d-models/character/clothing/men-pantspro-set-a-10pants" target="_blank" rel="noopener noreferrer">View on CGTrader</a>
+            <a
+              class="button primary"
+              href="https://www.cgtrader.com/3d-models/character/clothing/modular-upper-clothing-and-garment-hardware-pack-63-items"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Buy on CGTrader
+            </a>
+
+            <a
+              class="button"
+              href="https://www.cgtrader.com/designers/pfiliookeanos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CGTrader Profile
+            </a>
           </div>
 
           <p class="note">
-            Product files are hosted on CGTrader. The local preview page gives a cleaner portfolio-style product overview.
+            Product files are hosted on CGTrader. This pack is designed as a flexible clothing base collection
+            for custom texturing, modular outfit building and garment-detail kitbashing.
           </p>
         </div>
       </article>
+      <!-- =======================================================
+           FEATURED ASSET CONTENT END
+           ======================================================= -->
+
     </section>
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: ASSET GRID / PRODUKT-LISTE
-         Neue 3D Assets immer als neue <a class="asset-card"> Karte einfügen.
+         ASSET LIBRARY SECTION START
+         Hier stehen alle einzelnen 3D Asset Karten.
+
+         WENN EIN NEUES ASSET DAZUKOMMT:
+         1. In <div class="grid"> gehen.
+         2. Einen kompletten ASSET CARD BLOCK kopieren.
+         3. Direkt VOR dem TEMPLATE / PLACEHOLDER einfügen.
+         4. Bild, Titel, Text, Badges und Link ändern.
+
+         ASSET LIBRARY SECTION END
          ========================================================= -->
     <section class="section" id="asset-library">
       <div class="section-head">
@@ -397,25 +467,81 @@
           <h2>All 3D Assets</h2>
         </div>
         <p>
-          Übersicht aller veröffentlichten und geplanten 3D Assets. Jede Karte führt später auf eine eigene Preview Page.
+          Overview of released and planned 3D assets. Each card links to a preview page or marketplace listing.
         </p>
       </div>
 
       <div class="grid">
 
-        <!-- ASSET CARD START: Men PantsPro Set -->
-        <a class="asset-card" href="men-pantspro-set-10-pants.html">
+        <!-- =====================================================
+             ASSET CARD START:
+             Modular Upper Clothing & Garment Hardware Pack – 63 Items
+
+             Diese Karte ist ein VERÖFFENTLICHTES Produkt.
+             Für neue veröffentlichte Produkte diesen Block kopieren.
+             ===================================================== -->
+        <a
+          class="asset-card"
+          href="https://www.cgtrader.com/3d-models/character/clothing/modular-upper-clothing-and-garment-hardware-pack-63-items"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div class="asset-preview">
-            <img src="assets/img/Sammel_foto.png" alt="Men PantsPro Set low-poly clothing thumbnail" loading="lazy" />
+            <img
+              src="assets/img/modular-upper-clothing-hardware-pack.jpg"
+              alt="Modular Upper Clothing and Garment Hardware Pack thumbnail"
+              loading="lazy"
+            />
           </div>
+
           <div class="asset-content">
             <div class="badges">
-              <span class="badge">Released</span>
+              <span class="badge gold">Released</span>
+              <span class="badge">Clothing</span>
+              <span class="badge">63 Items</span>
+              <span class="badge">UV Unwrapped</span>
+            </div>
+
+            <h3>Modular Upper Clothing & Garment Hardware Pack</h3>
+
+            <p>
+              63-item modular clothing asset pack with 33 upper-body garments and 30 garment hardware pieces.
+              Includes jackets, hoodies, shirts, vests, tops, zippers, buttons, buckles and straps.
+            </p>
+
+            <span class="asset-status">View on CGTrader →</span>
+          </div>
+        </a>
+        <!-- =====================================================
+             ASSET CARD END:
+             Modular Upper Clothing & Garment Hardware Pack – 63 Items
+             ===================================================== -->
+
+
+        <!-- =====================================================
+             ASSET CARD START:
+             Men PantsPro Set – 10 Pants
+
+             Altes Produkt bleibt als zweite Karte in der Asset Library.
+             ===================================================== -->
+        <a class="asset-card" href="men-pantspro-set-10-pants.html">
+          <div class="asset-preview">
+            <img
+              src="assets/img/Sammel_foto.png"
+              alt="Men PantsPro Set low-poly clothing thumbnail"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="asset-content">
+            <div class="badges">
+              <span class="badge gold">Released</span>
               <span class="badge">Clothing</span>
               <span class="badge">Low Poly</span>
             </div>
 
             <h3>Men PantsPro Set – 10 Pants</h3>
+
             <p>
               10 organized low-poly pants models with separate FBX files and a clean Blender Asset Library file.
             </p>
@@ -423,11 +549,26 @@
             <span class="asset-status">Open Preview →</span>
           </div>
         </a>
-        <!-- ASSET CARD END: Men PantsPro Set -->
+        <!-- =====================================================
+             ASSET CARD END:
+             Men PantsPro Set – 10 Pants
+             ===================================================== -->
 
-        <!-- ASSET CARD START: Placeholder / Next Asset -->
+
+        <!-- =====================================================
+             TEMPLATE / PLACEHOLDER START:
+             Next 3D Asset
+
+             DIESER BLOCK BLEIBT UNTEN.
+             Wenn ein neues Asset kommt:
+             1. Diesen Block kopieren.
+             2. Direkt ÜBER diesem Template einfügen.
+             3. <article> zu <a> ändern, falls es einen Link gibt.
+             4. Bild, Badges, Titel, Text und Status ändern.
+             ===================================================== -->
         <article class="asset-card">
           <div class="asset-preview"></div>
+
           <div class="asset-content">
             <div class="badges">
               <span class="badge">Next</span>
@@ -435,21 +576,27 @@
             </div>
 
             <h3>Next 3D Asset</h3>
+
             <p>
-              Placeholder für das nächste 3D Asset. Diesen Block später kopieren, umbenennen und mit echtem Bild/Link ersetzen.
+              Placeholder for the next 3D asset. Copy this block later, rename it and replace it with a real image and link.
             </p>
 
             <span class="asset-status">Planned</span>
           </div>
         </article>
-        <!-- ASSET CARD END: Placeholder / Next Asset -->
+        <!-- =====================================================
+             TEMPLATE / PLACEHOLDER END:
+             Next 3D Asset
+             ===================================================== -->
 
       </div>
     </section>
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: TECHNICAL FOCUS
-         Kann später erweitert oder gelöscht werden.
+         TECHNICAL FOCUS SECTION START
+         Dieser Bereich erklärt kurz die Asset-Philosophie.
+         Kann später erweitert, gelöscht oder angepasst werden.
+         TECHNICAL FOCUS SECTION END
          ========================================================= -->
     <section class="section" id="technical-focus">
       <div class="section-head">
@@ -458,7 +605,7 @@
           <h2>Production Notes</h2>
         </div>
         <p>
-          Kurz erklärt, worauf die Assets ausgelegt sind.
+          Short overview of how the assets are structured and intended to be used.
         </p>
       </div>
 
@@ -476,7 +623,7 @@
           <div class="asset-content">
             <h3>Game-Friendly Base</h3>
             <p>
-              Low-poly meshes, clean scale, lightweight geometry and reusable FBX files for game-engine workflows.
+              Polygon meshes, clean scale, organized files and reusable assets for game-engine workflows.
             </p>
           </div>
         </article>
@@ -485,7 +632,7 @@
           <div class="asset-content">
             <h3>Customizable</h3>
             <p>
-              Clean UVs and minimal material slots make retexturing, material swaps and kitbash workflows easier.
+              Clean UVs make retexturing, material swaps, color variations and kitbash workflows easier.
             </p>
           </div>
         </article>
@@ -493,7 +640,8 @@
     </section>
 
     <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: FOOTER
+         FOOTER START
+         FOOTER END
          ========================================================= -->
     <footer>
       © 2026 Pfilio Okeanos · 3D Assets · Blender · FBX · Game Assets
