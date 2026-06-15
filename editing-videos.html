@@ -293,6 +293,57 @@
 
       .hero-media { min-height: 260px; }
     }
+
+
+/* =========================================================
+   CUSTOM THUMBNAIL / VIDEO IMAGE STYLES
+   ========================================================= */
+
+.hero-media.hero-media-image {
+  padding: 0;
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+  background: #05070d;
+}
+
+.hero-media.hero-media-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-media.hero-media-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 7, 13, 0.05), rgba(5, 7, 13, 0.28)),
+    radial-gradient(circle at 70% 30%, rgba(77, 232, 255, 0.12), transparent 36%);
+  pointer-events: none;
+}
+
+.project-preview.project-preview-image {
+  padding: 0;
+  min-height: 220px;
+  background: #05070d;
+}
+
+.project-preview.project-preview-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/*-- Frost_nova-ende-Style_block*/
+
+
+
+    
   </style>
 </head>
 
@@ -393,26 +444,41 @@
 
       <div class="grid">
 
-        <!-- VIDEO CARD START: Anime Edits -->
-        <article class="project-card">
-          <div class="project-preview">Anime Edit Preview</div>
-          <div class="project-content">
-            <div class="badges">
-              <span class="badge">Editing</span>
-              <span class="badge">Anime</span>
-              <span class="badge">Reels</span>
-            </div>
+     <!-- VIDEO CARD START: FrostNova Character Showcase -->
+<a
+  class="project-card"
+  href="https://www.youtube.com/watch?v=MP-M5uIdq08"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Watch FrostNova Character Showcase on YouTube"
+>
+  <div class="project-preview project-preview-image">
+    <img
+      src="assets/img/Frost_nova_171.png"
+      alt="FrostNova anime character edit thumbnail"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
 
-            <h3>Anime Edits</h3>
-            <p>
-              Kurze, emotionale und stylische Edits mit Timing, Sound-Hits, Color-Looks,
-              Übergängen und Social-Media-Formatierung.
-            </p>
+  <div class="project-content">
+    <div class="badges">
+      <span class="badge">Anime Edit</span>
+      <span class="badge">Character Showcase</span>
+      <span class="badge">YouTube</span>
+    </div>
 
-            <span class="project-status">Aktiver Bereich</span>
-          </div>
-        </article>
-        <!-- VIDEO CARD END: Anime Edits -->
+    <h3>FrostNova Character Showcase</h3>
+
+    <p>
+      Character-Vorstellung im frostigen Arknights-Look mit Thumbnail-Design,
+      UI-Card-Aufbau, Character-Daten und YouTube-Verlinkung.
+    </p>
+
+    <span class="project-status">Auf YouTube ansehen →</span>
+  </div>
+</a>
+<!-- VIDEO CARD END: FrostNova Character Showcase -->
 
         <!-- VIDEO CARD START: Depth Compositing -->
         <article class="project-card">
