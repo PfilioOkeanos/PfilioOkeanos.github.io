@@ -517,6 +517,7 @@
    Immer ein kompletter Release sichtbar.
    Neue Releases als neue .release-card vorne einfügen.
    ========================================================= */
+    
 
 .release-carousel {
   position: relative;
@@ -647,6 +648,32 @@
   .release-arrow.right {
     right: 10px;
   }
+}
+
+/* =========================================================
+   END: LATEST RELEASE CAROUSEL
+   ========================================================= */
+
+
+/* =========================================================
+   UNIVERSAL EDITOR NAVIGATION – PREVIEW
+   Nur das neue Plugin-Design.
+   Bestehende Animationen bleiben unverändert.
+   ========================================================= */
+
+/* Hier den CSS-Block aus meiner vorherigen Antwort
+   mit .release-plugin-art usw. einfügen. */
+
+
+/* =========================================================
+   AUSTAUSCHBARER STYLE-BLOCK: PROJECT CARDS
+   Dieser Block steuert die Haupt-Reiter/Karten.
+   ========================================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
 }
 
     /* =========================================================
@@ -1567,6 +1594,171 @@
              Kopiere eine komplette <article class="release-card"> Karte
              und füge sie direkt unter diesem Kommentar ein.
              ===================================================== -->
+
+<!-- =========================================================
+     NEWEST WORK ITEM START:
+     UniversalEditorNavigation
+     
+     Version: 0.3.0 Beta
+     Kategorie: Unreal Engine / C++ Editor Plugin
+
+     Dieser komplette Block ist austauschbar.
+     Neue Releases immer vor diesem Block einfügen.
+     ========================================================= -->
+
+<article class="release-card"
+         id="release-universal-editor-navigation">
+
+  <!-- =====================================================
+       LINKE SEITE: PLUGIN-VORSCHAU
+       ===================================================== -->
+  <div class="release-media single">
+
+    <div class="release-plugin-art">
+
+      <span class="release-plugin-label">
+        UNREAL ENGINE 5.8.3
+      </span>
+
+      <strong>6DOF</strong>
+
+      <span class="release-plugin-name">
+        UNIVERSAL EDITOR NAVIGATION
+      </span>
+
+      <span class="release-plugin-subtitle">
+        LOCAL PITCH · YAW · ROLL
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       RECHTE SEITE: RELEASE-INFORMATIONEN
+       ===================================================== -->
+  <div class="release-copy">
+
+    <!-- KATEGORIEN / BADGES -->
+    <div class="badges">
+      <span class="badge">Newest</span>
+      <span class="badge">Unreal Engine 5.8</span>
+      <span class="badge">C++ Plugin</span>
+      <span class="badge">6DOF</span>
+      <span class="badge">Beta 0.3.0</span>
+    </div>
+
+
+    <!-- RELEASE-TITEL -->
+    <h3>Universal Editor Navigation</h3>
+
+
+    <!-- KURZBESCHREIBUNG -->
+    <p>
+      A modular C++ editor plugin for unrestricted
+      local camera rotation in Unreal Engine 5.8.
+
+      Designed for building large 3D worlds,
+      spherical planets and complex environments
+      directly in the Level Editor.
+    </p>
+
+
+    <!-- FUNKTIONSÜBERSICHT -->
+    <ul class="feature-list">
+
+      <li>
+        Free local yaw and pitch without
+        the standard pitch limitation
+      </li>
+
+      <li>
+        Camera rotation beyond 90 degrees,
+        including complete loops
+      </li>
+
+      <li>
+        Local camera roll using Q and E
+      </li>
+
+      <li>
+        No forced world-Z camera alignment
+      </li>
+
+      <li>
+        Adjustable roll speed and mouse sensitivity
+      </li>
+
+      <li>
+        Modular C++ editor plugin
+      </li>
+
+      <li>
+        Source code available on GitHub
+      </li>
+
+    </ul>
+
+
+    <!-- ===================================================
+         DOWNLOAD-BUTTONS
+         Links bei neuen Versionen hier aktualisieren.
+         =================================================== -->
+    <div class="actions">
+
+      <!-- DIREKTER PLUGIN-DOWNLOAD -->
+      <a
+        class="button primary"
+        href="https://github.com/PfilioOkeanos/UniversalEditorNavigation/raw/refs/heads/main/UniversalEditorNavigation-GitHub.zip"
+      >
+        Download Plugin (ZIP)
+      </a>
+
+
+      <!-- GITHUB REPOSITORY -->
+      <a
+        class="button"
+        href="https://github.com/PfilioOkeanos/UniversalEditorNavigation"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View on GitHub
+      </a>
+
+
+      <!-- TOOLS & SOFTWARE UNTERSEITE -->
+      <a
+        class="button"
+        href="tools-software.html#featured-tool"
+      >
+        Tools &amp; Software
+      </a>
+
+    </div>
+
+
+    <!-- ===================================================
+         VERSION / INSTALLATIONSHINWEIS
+         =================================================== -->
+    <p class="release-hint">
+      Version 0.3.0 Beta · Unreal Engine 5.8.3.
+
+      Source-code release. Requires a compatible
+      Unreal Engine C++ development environment.
+
+      Extended camera-relative flight controls
+      are planned for future versions.
+    </p>
+
+  </div>
+
+</article>
+
+<!-- =========================================================
+     NEWEST WORK ITEM END:
+     UniversalEditorNavigation
+     ========================================================= -->
 
 
 <!-- =========================================================
