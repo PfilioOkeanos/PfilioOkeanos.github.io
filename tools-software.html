@@ -317,60 +317,156 @@
       </div>
     </header>
 
-    <!-- =========================================================
-         AUSTAUSCHBARER BLOCK: FEATURED TOOL / AKTUELLES TOOL
-         Hier immer das wichtigste oder neueste Tool einsetzen.
-         ========================================================= -->
-    <section class="section" id="featured-tool">
-      <div class="section-head">
-        <div>
-          <div class="tag">Aktuelles Tool-System</div>
-          <h2>Creative Pipeline Tools</h2>
+  
+<!-- =========================================================
+     FEATURED TOOL: UNIVERSAL EDITOR NAVIGATION
+     ========================================================= -->
+<section class="section" id="featured-tool">
+
+  <div class="section-head">
+    <div>
+      <div class="tag">Aktuelles Tool · Beta 0.3.0</div>
+      <h2>Universal Editor Navigation</h2>
+    </div>
+    <p>
+      Freie Kamerarotation für den Unreal Engine Editor.
+      Entwickelt für große Welten, Planeten und 3D-Levelbau.
+    </p>
+  </div>
+
+  <article class="hero-card">
+
+    <!-- LINKE SEITE: TOOL PREVIEW -->
+    <div class="hero-media">
+      <div style="width:100%; max-width:370px;">
+
+        <div style="
+          color:#58a6ff;
+          font-size:0.85rem;
+          letter-spacing:0.2em;
+          margin-bottom:20px;">
+          UNREAL ENGINE 5.8.3
         </div>
-        <p>
-          Werkzeuge, die wiederkehrende Aufgaben schneller, sauberer und wiederholbar machen.
-        </p>
+
+        <div style="
+          font-size:clamp(3rem,8vw,5rem);
+          font-weight:900;
+          line-height:1;
+          color:#f0f6fc;
+          text-shadow:0 0 35px rgba(77,232,255,0.3);">
+          6DOF
+        </div>
+
+        <div style="
+          font-size:1.15rem;
+          color:#4de8ff;
+          margin-top:16px;">
+          UNIVERSAL EDITOR NAVIGATION
+        </div>
+
+        <div style="
+          margin-top:30px;
+          padding:18px;
+          border:1px solid rgba(77,232,255,0.3);
+          border-radius:14px;
+          background:rgba(88,166,255,0.06);
+          text-align:left;
+          font-family:monospace;
+          font-size:0.85rem;
+          line-height:2;
+          color:#c9d1d9;">
+          &gt; LOCAL CAMERA ROTATION<br>
+          &gt; UNLIMITED PITCH / YAW<br>
+          &gt; Q / E CAMERA ROLL<br>
+          &gt; EDITOR VIEWPORT<br>
+          <span style="color:#4de8ff;">
+            &gt; STATUS: BETA 0.3.0
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RECHTE SEITE: BESCHREIBUNG -->
+    <div class="hero-copy">
+
+      <div class="badges">
+        <span class="badge">Unreal Engine</span>
+        <span class="badge">C++</span>
+        <span class="badge">6DOF</span>
+        <span class="badge">Editor Plugin</span>
       </div>
 
-      <article class="hero-card">
-        <div class="hero-media">
-          Tool Preview<br>
-          Pipeline · Automation · Add-ons
-        </div>
+      <h2>Freie Rotation.
+      Grenzenlos bauen.</h2>
 
-        <div class="hero-copy">
-          <div class="badges">
-            <span class="badge">Blender</span>
-            <span class="badge">Pipeline</span>
-            <span class="badge">Automation</span>
-            <span class="badge">Workflow</span>
-          </div>
+      <p>
+        UniversalEditorNavigation erweitert die normale
+        Perspective-Kamera des Unreal Level-Editors um
+        freie lokale Rotation.
+      </p>
 
-          <h2>Tool- und Pipeline-Helfer</h2>
+      <p>
+        Das Plugin wurde für die Arbeit an großen
+        3D-Welten, sphärischen Planeten und komplexen
+        Umgebungen entwickelt.
+      </p>
 
-          <p>
-            Diese Seite sammelt kleine bis größere Werkzeuge: Add-ons, Zähler,
-            Masking-Helfer, Asset-Workflows und spätere Produktionssysteme.
-          </p>
+      <ul class="feature-list">
+        <li>
+          Freies Yaw und Pitch ohne klassische
+          Pitch-Begrenzung
+        </li>
+        <li>
+          Seitliches Rollen der Kamera mit Q und E
+        </li>
+        <li>
+          Keine erzwungene Welt-Z-Aufrichtung
+          bei der lokalen Kamerasteuerung
+        </li>
+        <li>
+          Anpassbare Rollgeschwindigkeit und
+          Maus-Empfindlichkeit
+        </li>
+        <li>
+          Eigenständiges, deaktivierbares
+          C++-Editor-Plugin
+        </li>
+      </ul>
 
-          <ul class="feature-list">
-            <li>Blender-Add-ons und kleine Workflow-Helfer</li>
-            <li>Masking- und Alpha-Tools für Video/VFX</li>
-            <li>Asset- und Marketplace-Pipeline-Automatisierung</li>
-            <li>spätere Clothing-Fit- und Weight-Transfer-Helfer</li>
-          </ul>
+      <div class="actions">
 
-          <div class="actions">
-            <a class="button primary" href="#tool-library">Tools ansehen</a>
-            <a class="button" href="index.html">Zur Startseite</a>
-          </div>
+        <a class="button primary"
+           href="https://github.com/PfilioOkeanos/UniversalEditorNavigation/raw/refs/heads/main/UniversalEditorNavigation-GitHub.zip">
+          ↓ Plugin herunterladen
+        </a>
 
-          <p class="note">
-            Diese Seite ist als Übersicht gedacht. Einzelne größere Tools bekommen später eigene Unterseiten.
-          </p>
-        </div>
-      </article>
-    </section>
+        <a class="button"
+           href="https://github.com/PfilioOkeanos/UniversalEditorNavigation"
+           target="_blank"
+           rel="noopener noreferrer">
+          GitHub ansehen →
+        </a>
+
+        <a class="button" href="#tool-library">
+          Alle Tools
+        </a>
+
+      </div>
+
+      <p class="note">
+        Version 0.3.0 Beta · Unreal Engine 5.8.3 ·
+        Quellcode-Download. Eigene C++-Kompilierung
+        erforderlich. Vollständig kamerarelatives
+        Fliegen mit Strg/Leertaste ist noch in Entwicklung.
+      </p>
+
+    </div>
+  </article>
+
+</section>
+<!-- END FEATURED TOOL -->
+
 
     <!-- =========================================================
          AUSTAUSCHBARER BLOCK: TOOL / SOFTWARE LISTE
