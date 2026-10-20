@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -729,6 +730,18 @@
       display: block;
       object-fit: cover;
     }
+
+    /* =========================================================
+       PROJEKTE > TOOLS & SOFTWARE: VORSCHAUBILD
+       Nur das Universal-Editor-Bild dieser Projektkarte.
+       Vorschauhöhe hier ändern; das ganze Bild bleibt sichtbar.
+       Den Bildpfad unten bei "BILD HIER AUSTAUSCHEN" ändern.
+       ========================================================= */
+    .preview--universal-editor img {
+      height: 160px;
+      object-fit: contain;
+    }
+    /* ========== ENDE: TOOLS-&-SOFTWARE-VORSCHAUBILD ========== */
 
     .card-content {
       padding: 20px;
@@ -2244,7 +2257,22 @@
 
         <!-- PROJECT CARD START: Tools & Software -->
         <a class="card" href="tools-software.html">
-          <div class="preview">Tool Preview</div>
+          <!-- =====================================================
+               PROJEKTE > TOOLS & SOFTWARE: BILD HIER AUSTAUSCHEN
+               1. Bild im Website-Ordner assets/img/ ablegen.
+               2. Bei src den Dateinamen anpassen (%20 = Leerzeichen).
+               3. Bei alt eine kurze Bildbeschreibung eintragen.
+               Für diese Vorschau genau ein <img>-Element verwenden.
+               Größe: oben im CSS bei "VORSCHAUBILD" ändern.
+               ===================================================== -->
+          <div class="preview preview--universal-editor">
+            <img
+              src="assets/img/Universeller%20Editor_%20Neue%20Perspektiven.jpg"
+              alt="Universal Editor Navigation – Vorschau des Unreal-Editor-Plugins"
+              loading="lazy"
+            />
+          </div>
+          <!-- ========== ENDE: AUSTAUSCHBARES PROJEKT-BILD ========== -->
           <div class="card-content">
             <h3>Tools & Software</h3>
             <p>Eigene Tools, Masking, Automatisierung, Pipeline-Helfer und experimentelle Systeme.</p>
