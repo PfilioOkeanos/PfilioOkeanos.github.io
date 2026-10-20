@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -292,47 +293,51 @@
 
       .hero-media { min-height: 260px; }
     }
-    
-/* =========================================================
-   UNIVERSAL EDITOR NAVIGATION – IMAGE SETTINGS
-   Nur die zwei Plugin-Bilder werden angepasst.
-   Andere Bilder bleiben unverändert.
-   ========================================================= */
 
-/* Großes Bild im Featured-Tool-Fenster */
-.uen-hero-media {
-  padding: 0;
-  background: #05070d;
-}
 
-.uen-hero-media img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
+    /* =========================================================
+       UNIVERSAL EDITOR NAVIGATION – IMAGE SETTINGS
 
-/* Kleines Bild in der Tool-Bibliothek */
-.uen-project-preview {
-  padding: 0;
-  min-height: 0;
-  aspect-ratio: 16 / 9;
-  background: #05070d;
-}
+       Steuert ausschließlich die beiden Plugin-Bilder.
+       Andere Bilder und Karten bleiben unverändert.
+       ========================================================= */
 
-.uen-project-preview img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+    /* Großes Bild im Featured-Tool-Fenster */
+    .uen-hero-media {
+      padding: 0;
+      min-width: 0;
+      overflow: hidden;
+      background: #05070d;
+    }
 
-/* =========================================================
-   END: UNIVERSAL EDITOR NAVIGATION IMAGES
-   ========================================================= */
+    .uen-hero-media img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Kleines Bild in der Tool-Bibliothek */
+    .uen-project-preview {
+      padding: 0;
+      min-height: 0;
+      aspect-ratio: 16 / 9;
+      background: #05070d;
+    }
+
+    .uen-project-preview img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* =========================================================
+       END: UNIVERSAL EDITOR NAVIGATION IMAGES
+       ========================================================= */
 
   </style>
-  
 </head>
 
 <body>
@@ -353,160 +358,184 @@
         <a href="index.html">← Zur Startseite</a>
         <a href="vfx-geonodes.html">VFX & GeoNodes</a>
         <a href="3d-assets.html">3D-Assets</a>
-        <a href="https://github.com/PfilioOkeanos" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/PfilioOkeanos"
+           target="_blank"
+           rel="noopener noreferrer">
+          GitHub
+        </a>
       </div>
     </header>
 
-  
-<!-- =========================================================
-     FEATURED TOOL: UNIVERSAL EDITOR NAVIGATION
-     ========================================================= -->
-<section class="section" id="featured-tool">
 
-  <div class="section-head">
-    <div>
-      <div class="tag">Aktuelles Tool · Beta 0.3.0</div>
-      <h2>Universal Editor Navigation</h2>
-    </div>
-    <p>
-      Freie Kamerarotation für den Unreal Engine Editor.
-      Entwickelt für große Welten, Planeten und 3D-Levelbau.
-    </p>
-  </div>
+    <!-- =========================================================
+         FEATURED TOOL: UNIVERSAL EDITOR NAVIGATION
 
-  <article class="hero-card">
+         Großes Fenster auf der Tools-&-Software-Seite.
+         Bild links, Beschreibung rechts.
+         ========================================================= -->
+    <section class="section" id="featured-tool">
 
-    <!-- LINKE SEITE: TOOL PREVIEW -->
-   
-<!-- =========================================================
-     UNIVERSAL EDITOR NAVIGATION – GROSSES VORSCHAUBILD
-     ========================================================= -->
-<!-- Universal Editor Navigation – großes Vorschaubild -->
-<img
-  src="assets/img/Universeller%20Editor_%20Neue%20Perspektiven.jpg"
-  alt="Universal Editor Navigation – 6DOF Unreal Plugin"
-  loading="eager"
-/>
-<!-- END: GROSSES VORSCHAUBILD -->
+      <div class="section-head">
+        <div>
+          <div class="tag">Aktuelles Tool · Beta 0.3.0</div>
+          <h2>Universal Editor Navigation</h2>
+        </div>
 
-
-    <!-- RECHTE SEITE: BESCHREIBUNG -->
-    <div class="hero-copy">
-
-      <div class="badges">
-        <span class="badge">Unreal Engine</span>
-        <span class="badge">C++</span>
-        <span class="badge">6DOF</span>
-        <span class="badge">Editor Plugin</span>
+        <p>
+          Freie Kamerarotation für den Unreal Engine Editor.
+          Entwickelt für große Welten, Planeten und 3D-Levelbau.
+        </p>
       </div>
 
-      <h2>Freie Rotation.
-      Grenzenlos bauen.</h2>
+      <article class="hero-card">
 
-      <p>
-        UniversalEditorNavigation erweitert die normale
-        Perspective-Kamera des Unreal Level-Editors um
-        freie lokale Rotation.
-      </p>
+        <!-- =====================================================
+             LINKE SEITE: GROSSES PLUGIN-VORSCHAUBILD
 
-      <p>
-        Das Plugin wurde für die Arbeit an großen
-        3D-Welten, sphärischen Planeten und komplexen
-        Umgebungen entwickelt.
-      </p>
+             Der Container hält das Bild in der linken Spalte.
+             Das Bild wird proportional skaliert.
+             ===================================================== -->
+        <div class="hero-media uen-hero-media">
+          <img
+            src="assets/img/Universeller%20Editor_%20Neue%20Perspektiven.jpg"
+            alt="Universal Editor Navigation – 6DOF Unreal Plugin"
+            loading="eager"
+          />
+        </div>
+        <!-- END: GROSSES VORSCHAUBILD -->
 
-      <ul class="feature-list">
-        <li>
-          Freies Yaw und Pitch ohne klassische
-          Pitch-Begrenzung
-        </li>
-        <li>
-          Seitliches Rollen der Kamera mit Q und E
-        </li>
-        <li>
-          Keine erzwungene Welt-Z-Aufrichtung
-          bei der lokalen Kamerasteuerung
-        </li>
-        <li>
-          Anpassbare Rollgeschwindigkeit und
-          Maus-Empfindlichkeit
-        </li>
-        <li>
-          Eigenständiges, deaktivierbares
-          C++-Editor-Plugin
-        </li>
-      </ul>
 
-      <div class="actions">
+        <!-- =====================================================
+             RECHTE SEITE: PLUGIN-BESCHREIBUNG
+             ===================================================== -->
+        <div class="hero-copy">
 
-        <a class="button primary"
-           href="https://github.com/PfilioOkeanos/UniversalEditorNavigation/raw/refs/heads/main/UniversalEditorNavigation-GitHub.zip">
-          ↓ Plugin herunterladen
-        </a>
+          <div class="badges">
+            <span class="badge">Unreal Engine</span>
+            <span class="badge">C++</span>
+            <span class="badge">6DOF</span>
+            <span class="badge">Editor Plugin</span>
+          </div>
 
-        <a class="button"
-           href="https://github.com/PfilioOkeanos/UniversalEditorNavigation"
-           target="_blank"
-           rel="noopener noreferrer">
-          GitHub ansehen →
-        </a>
+          <h2>
+            Freie Rotation.<br>
+            Grenzenlos bauen.
+          </h2>
 
-        <a class="button" href="#tool-library">
-          Alle Tools
-        </a>
+          <p>
+            UniversalEditorNavigation erweitert die normale
+            Perspective-Kamera des Unreal Level-Editors um
+            freie lokale Rotation.
+          </p>
 
-      </div>
+          <p>
+            Das Plugin wurde für die Arbeit an großen
+            3D-Welten, sphärischen Planeten und komplexen
+            Umgebungen entwickelt.
+          </p>
 
-      <p class="note">
-        Version 0.3.0 Beta · Unreal Engine 5.8.3 ·
-        Quellcode-Download. Eigene C++-Kompilierung
-        erforderlich. Vollständig kamerarelatives
-        Fliegen mit Strg/Leertaste ist noch in Entwicklung.
-      </p>
+          <ul class="feature-list">
+            <li>
+              Freies Yaw und Pitch ohne klassische
+              Pitch-Begrenzung
+            </li>
+            <li>
+              Seitliches Rollen der Kamera mit Q und E
+            </li>
+            <li>
+              Keine erzwungene Welt-Z-Aufrichtung
+              bei der lokalen Kamerasteuerung
+            </li>
+            <li>
+              Anpassbare Rollgeschwindigkeit und
+              Maus-Empfindlichkeit
+            </li>
+            <li>
+              Eigenständiges, deaktivierbares
+              C++-Editor-Plugin
+            </li>
+          </ul>
 
-    </div>
-  </article>
+          <!-- DOWNLOAD UND WEITERFÜHRENDE LINKS -->
+          <div class="actions">
 
-</section>
-<!-- END FEATURED TOOL -->
+            <!-- ZIP-DOWNLOAD -->
+            <a
+              class="button primary"
+              href="https://github.com/PfilioOkeanos/UniversalEditorNavigation/raw/refs/heads/main/UniversalEditorNavigation-GitHub.zip"
+            >
+              ↓ Plugin herunterladen
+            </a>
+
+            <!-- GITHUB-REPOSITORY -->
+            <a
+              class="button"
+              href="https://github.com/PfilioOkeanos/UniversalEditorNavigation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ansehen →
+            </a>
+
+            <!-- SPRUNG ZUR TOOL-BIBLIOTHEK -->
+            <a class="button" href="#tool-library">
+              Alle Tools
+            </a>
+
+          </div>
+
+          <p class="note">
+            Version 0.3.0 Beta · Unreal Engine 5.8.3 ·
+            Quellcode-Download. Eigene C++-Kompilierung
+            erforderlich. Vollständig kamerarelatives
+            Fliegen mit Strg/Leertaste ist noch in Entwicklung.
+          </p>
+
+        </div>
+      </article>
+
+    </section>
+    <!-- END FEATURED TOOL -->
 
 
     <!-- =========================================================
          AUSTAUSCHBARER BLOCK: TOOL / SOFTWARE LISTE
-         Neue Tools immer als neue <article class="project-card"> oder
-         <a class="project-card"> Karte einfügen.
+
+         Neue Tools als eigene project-card hinzufügen.
          ========================================================= -->
     <section class="section" id="tool-library">
+
       <div class="section-head">
         <div>
           <div class="tag">Tool-Bibliothek</div>
           <h2>Alle Tools & Software-Projekte</h2>
         </div>
+
         <p>
-          Übersicht der veröffentlichten, laufenden und geplanten Tool-Systeme.
+          Übersicht der veröffentlichten, laufenden
+          und geplanten Tool-Systeme.
         </p>
       </div>
 
       <div class="grid">
 
-       
 
-      
-        <!-- TOOL CARD START: UniversalEditorNavigation -->
+        <!-- =====================================================
+             TOOL CARD START: UNIVERSAL EDITOR NAVIGATION
+             ===================================================== -->
         <article class="project-card">
-         
-<!-- =========================================================
-     UNIVERSAL EDITOR NAVIGATION – TOOL CARD PREVIEW
-     ========================================================= -->
-<img
-  src="assets/img/Universeller%20Editor_%20Neue%20Perspektiven.jpg"
-  alt="Universal Editor Navigation"
-  loading="lazy"
-/>
-<!-- END: TOOL CARD PREVIEW -->
 
+          <!-- Kleine Bildvorschau -->
+          <div class="project-preview uen-project-preview">
+            <img
+              src="assets/img/Universeller%20Editor_%20Neue%20Perspektiven.jpg"
+              alt="Universal Editor Navigation – Plugin-Vorschau"
+              loading="lazy"
+            />
+          </div>
 
           <div class="project-content">
+
             <div class="badges">
               <span class="badge">Unreal Engine 5.8</span>
               <span class="badge">C++ Plugin</span>
@@ -535,6 +564,7 @@
               <span class="badge">Source Code</span>
             </div>
 
+            <!-- GITHUB-LINK -->
             <p>
               <a
                 href="https://github.com/PfilioOkeanos/UniversalEditorNavigation"
@@ -545,6 +575,7 @@
               </a>
             </p>
 
+            <!-- DOWNLOAD-LINK -->
             <p>
               <a
                 href="https://github.com/PfilioOkeanos/UniversalEditorNavigation/raw/refs/heads/main/UniversalEditorNavigation-GitHub.zip"
@@ -561,15 +592,23 @@
             </p>
 
             <span class="project-status">Beta 0.3.0</span>
+
           </div>
         </article>
         <!-- TOOL CARD END: UniversalEditorNavigation -->
 
 
-        <!-- TOOL CARD START: Clothing Pipeline Helper -->
+        <!-- =====================================================
+             TOOL CARD START: Clothing Pipeline Helper
+             ===================================================== -->
         <article class="project-card">
-          <div class="project-preview">Clothing Helper Preview</div>
+
+          <div class="project-preview">
+            Clothing Helper Preview
+          </div>
+
           <div class="project-content">
+
             <div class="badges">
               <span class="badge">Blender</span>
               <span class="badge">Clothing</span>
@@ -577,6 +616,7 @@
             </div>
 
             <h3>Clothing Pipeline Helper</h3>
+
             <p>
               Geplanter Workflow-Helfer für Kleidung:
               Fit-to-Character, Weight Transfer,
@@ -585,15 +625,23 @@
             </p>
 
             <span class="project-status">Geplant</span>
+
           </div>
         </article>
         <!-- TOOL CARD END: Clothing Pipeline Helper -->
 
 
-        <!-- TOOL CARD START: Website / Asset Page System -->
+        <!-- =====================================================
+             TOOL CARD START: Website / Asset Page System
+             ===================================================== -->
         <article class="project-card">
-          <div class="project-preview">Website System Preview</div>
+
+          <div class="project-preview">
+            Website System Preview
+          </div>
+
           <div class="project-content">
+
             <div class="badges">
               <span class="badge">Website</span>
               <span class="badge">Portfolio</span>
@@ -601,6 +649,7 @@
             </div>
 
             <h3>Website Asset Page System</h3>
+
             <p>
               Modulares Website-System mit Hauptseite,
               Projekt-Reitern, Release-Slider,
@@ -609,9 +658,11 @@
             </p>
 
             <span class="project-status">Aktiv im Aufbau</span>
+
           </div>
         </article>
         <!-- TOOL CARD END: Website / Asset Page System -->
+
 
       </div>
     </section>
@@ -621,6 +672,7 @@
          AUSTAUSCHBARER BLOCK: TOOL FOKUS / PRODUKTIONSNOTIZEN
          ========================================================= -->
     <section class="section" id="tool-focus">
+
       <div class="section-head">
         <div>
           <div class="tag">Arbeitsfokus</div>
@@ -634,6 +686,7 @@
       </div>
 
       <div class="grid">
+
         <article class="project-card">
           <div class="project-content">
             <h3>Wiederholung reduzieren</h3>
@@ -666,6 +719,7 @@
             </p>
           </div>
         </article>
+
       </div>
     </section>
 
